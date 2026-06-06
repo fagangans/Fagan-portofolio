@@ -65,9 +65,21 @@ export default function AboutSection() {
               </div>
             )}
             <div className="absolute inset-0 bg-radial-glow" />
-            <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-4">
-              <p className="font-serif text-lg text-white">{name}</p>
-              <p className="text-xs text-silver">{tagline}</p>
+            {/* Darkened gradient at bottom to ensure text legibility over any photo */}
+            <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/15 bg-black/60 p-4 backdrop-blur-xl shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
+              <p
+                className="font-serif text-lg font-semibold text-[#E8D7A5]"
+                style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}
+              >
+                {name}
+              </p>
+              <p
+                className="mt-0.5 text-xs text-[#F0EDE6]/85"
+                style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}
+              >
+                {tagline}
+              </p>
             </div>
           </div>
         </motion.div>
