@@ -1,18 +1,17 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { User } from "lucide-react";
 import { name, tagline, biography, profilePhoto } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
+import PortraitCard from "@/components/ui/PortraitCard";
 
 const timeline = [
-  { year: "2020", title: "Founded Altair Studio", desc: "Launched an independent creative practice." },
-  { year: "2021", title: "First Awards", desc: "Recognized by CSS Design Awards." },
-  { year: "2022", title: "Scaled to 50k Users", desc: "Grew a self-built SaaS product globally." },
-  { year: "2023", title: "AI Specialization", desc: "Shipped production LLM-powered products." },
-  { year: "2024", title: "Awwwards Recognition", desc: "Site of the Day for immersive 3D work." },
+  { year: "2020", title: "Memulai Perjalanan", desc: "Mulai belajar web development secara serius dan mengerjakan proyek pertama." },
+  { year: "2021", title: "Proyek Klien Pertama", desc: "Menyelesaikan proyek komersial pertama untuk bisnis lokal." },
+  { year: "2022", title: "Spesialisasi Frontend", desc: "Fokus pada React, Next.js, dan pengembangan antarmuka modern." },
+  { year: "2023", title: "UI/UX & Design System", desc: "Memperluas keahlian ke desain produk dan pengalaman pengguna." },
+  { year: "2024", title: "30+ Klien Terlayani", desc: "Berhasil membantu lebih dari 30 bisnis dan komunitas hadir secara digital." },
 ];
 
 function Counter({ value, label }: { value: number; label: string }) {
@@ -38,56 +37,44 @@ function Counter({ value, label }: { value: number; label: string }) {
 export default function AboutSection() {
   return (
     <section id="about" className="section-pad relative">
-      <SectionHeading eyebrow="Who I Am" title="About" highlight="Me" className="mb-20" />
+      <SectionHeading eyebrow="Tentang Saya" title="About" highlight="Me" className="mb-20" />
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
+        {/* Portrait */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{ perspective: 1200 }}
-          className="group"
         >
-          <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-3xl bg-gradient-to-br from-gold/20 via-charcoal to-black border border-white/10 overflow-hidden transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(-8deg)_rotateX(4deg)]">
-            {profilePhoto ? (
-              <Image
-                src={profilePhoto}
-                alt={name}
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 448px"
-                priority
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <User className="h-32 w-32 text-gold/40" />
-              </div>
-            )}
-            <div className="absolute inset-0 bg-radial-glow" />
-            <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-4">
-              <p className="font-serif text-lg text-white">{name}</p>
-              <p className="text-xs text-silver">{tagline}</p>
-            </div>
-          </div>
+          <PortraitCard
+            src={profilePhoto}
+            alt={name}
+            subtitle={tagline}
+            variant="about"
+          />
         </motion.div>
 
+        {/* Bio + timeline */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {biography.split("\n\n").map((paragraph, i) => (
-            <p key={i} className={`${i > 0 ? "mt-4" : "text-lg"} leading-relaxed text-silver`}>
-              {paragraph}
+          {biography.split("\n\n").filter(Boolean).map((paragraph, i) => (
+            <p
+              key={i}
+              className={`${i > 0 ? "mt-4" : "text-lg"} leading-relaxed text-silver`}
+            >
+              {paragraph.trim()}
             </p>
           ))}
 
           <div className="mt-10 grid grid-cols-3 gap-6">
-            <Counter value={5} label="Years" />
-            <Counter value={50} label="Projects" />
-            <Counter value={30} label="Clients" />
+            <Counter value={5} label="Tahun" />
+            <Counter value={50} label="Proyek" />
+            <Counter value={30} label="Klien" />
           </div>
 
           <div className="mt-12 space-y-6">
