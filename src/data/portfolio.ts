@@ -87,31 +87,36 @@ export interface NavLink {
 
 export const name = "FAGAN FABIAN ALTAIR";
 
-export const tagline = "Creative Developer | Designer | Entrepreneur";
+export const tagline =
+  "Siswa SMA Unggul Garuda | Penggemar Teknologi, Desain, dan Inovasi";
 
 export const shortBio =
-  "Crafting cinematic, world-class digital experiences at the intersection of design, technology, and storytelling.";
+  "Siswa yang gemar belajar, mengeksplorasi teknologi, dan mengikuti berbagai kompetisi untuk mengembangkan kemampuan serta pengalaman.";
 
-export const biography = `I'm a multidisciplinary creative blending engineering precision with design sensibility. Over the past five years I've partnered with founders, studios, and global brands to build digital products that feel inevitable — elegant, fast, and unforgettable.
+export const biography = `
+Saya adalah siswa SMA Unggul Garuda yang memiliki ketertarikan pada teknologi, desain, pengembangan digital, dan berbagai bidang pembelajaran lainnya.
 
-From immersive 3D web experiences to AI-powered products and complete brand systems, I treat every project as a piece of craft.`;
+Saya senang mencari tahu hal-hal baru, mempelajari keterampilan yang belum saya kuasai, serta mencoba berbagai kompetisi untuk menguji kemampuan dan memperluas wawasan. Bagi saya, setiap proyek, pengalaman, dan lomba merupakan kesempatan untuk belajar, berkembang, dan menjadi versi yang lebih baik dari diri saya sendiri.
+
+Saat ini saya terus mengembangkan kemampuan di bidang teknologi, desain, komunikasi, dan pemecahan masalah sambil membangun portofolio yang mencerminkan proses belajar dan perkembangan saya.
+`;
 
 // Path to your profile photo inside the /public directory.
 // Example: "/images/profile.jpg"
 // Leave as "" to show a styled placeholder.
-export const profilePhoto = "";
+export const profilePhoto = "/images/fagan-profile.jpg";
 
 export const email = "faganfabian4@gmail.com";
 
 // Display label shown in the Contact section.
 // Update with your real number — digits are extracted automatically for the WhatsApp link.
-export const phone = "+1 (000) 000-0000";
+export const phone = "089695368844";
 
 // Optional: set an explicit WhatsApp number (digits only, with country code, e.g. "5491112345678").
 // If empty, the phone field above is used.
-export const whatsappNumber = "";
+export const whatsappNumber = "6289695368844";
 
-export const location = "Available Worldwide";
+export const location = "Palembang, Sumatera Selatan, Indonesia";
 
 // ─── Navigation ──────────────────────────────────────────────
 
