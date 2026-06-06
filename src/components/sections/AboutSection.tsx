@@ -6,11 +6,11 @@ import { User } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const timeline = [
-  { year: "2020", title: "Founded Altair Studio", desc: "Launched an independent creative practice." },
-  { year: "2021", title: "First Awards", desc: "Recognized by CSS Design Awards." },
-  { year: "2022", title: "Scaled to 50k Users", desc: "Grew a self-built SaaS product globally." },
-  { year: "2023", title: "AI Specialization", desc: "Shipped production LLM-powered products." },
-  { year: "2024", title: "Awwwards Recognition", desc: "Site of the Day for immersive 3D work." },
+  { year: "2020", title: "Memulai Perjalanan", desc: "Mulai belajar web development secara serius dan mengerjakan proyek pertama." },
+  { year: "2021", title: "Proyek Klien Pertama", desc: "Menyelesaikan proyek komersial pertama untuk bisnis lokal." },
+  { year: "2022", title: "Spesialisasi Frontend", desc: "Fokus pada React, Next.js, dan pengembangan antarmuka modern." },
+  { year: "2023", title: "UI/UX & Design System", desc: "Memperluas keahlian ke desain produk dan pengalaman pengguna." },
+  { year: "2024", title: "30+ Klien Terlayani", desc: "Berhasil membantu lebih dari 30 bisnis dan komunitas hadir secara digital." },
 ];
 
 function Counter({ value, label }: { value: number; label: string }) {
@@ -36,7 +36,7 @@ function Counter({ value, label }: { value: number; label: string }) {
 export default function AboutSection() {
   return (
     <section id="about" className="section-pad relative">
-      <SectionHeading eyebrow="Who I Am" title="About" highlight="Me" className="mb-20" />
+      <SectionHeading eyebrow="Tentang Saya" title="About" highlight="Me" className="mb-20" />
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
         <motion.div
@@ -66,22 +66,23 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
         >
           <p className="text-lg leading-relaxed text-silver">
-            I&apos;m a multidisciplinary creative blending{" "}
-            <span className="text-white">engineering precision</span> with{" "}
-            <span className="text-gold">design sensibility</span>. Over the past
-            five years I&apos;ve partnered with founders, studios, and global
-            brands to build digital products that feel inevitable &mdash;
-            elegant, fast, and unforgettable.
+            Saya adalah seorang web developer yang memadukan{" "}
+            <span className="text-white">ketelitian teknis</span> dengan{" "}
+            <span className="text-gold">kepekaan desain</span>. Selama lima
+            tahun terakhir, saya telah membantu berbagai bisnis lokal, komunitas,
+            dan personal brand untuk hadir secara digital dengan tampilan yang
+            profesional dan berkesan.
           </p>
           <p className="mt-4 leading-relaxed text-silver">
-            From immersive 3D web experiences to AI-powered products and complete
-            brand systems, I treat every project as a piece of craft.
+            Dari landing page yang mengkonversi hingga aplikasi web yang
+            kompleks, setiap proyek saya kerjakan dengan dedikasi penuh
+            dan standar kualitas yang tinggi.
           </p>
 
           <div className="mt-10 grid grid-cols-3 gap-6">
-            <Counter value={5} label="Years" />
-            <Counter value={50} label="Projects" />
-            <Counter value={30} label="Clients" />
+            <Counter value={5} label="Tahun" />
+            <Counter value={50} label="Proyek" />
+            <Counter value={30} label="Klien" />
           </div>
 
           <div className="mt-12 space-y-6">
