@@ -63,7 +63,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-gold"
+          className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-[#9A8152]"
         >
           {tagline}
         </motion.span>
@@ -84,7 +84,7 @@ export default function HeroSection() {
                   className={
                     wi === 1
                       ? "inline-block text-gold-gradient"
-                      : "inline-block text-gradient"
+                      : "inline-block text-hero-name"
                   }
                 >
                   {char}
