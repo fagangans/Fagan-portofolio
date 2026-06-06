@@ -10,7 +10,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="section-pad relative bg-charcoal/30">
       <SectionHeading
-        eyebrow="How I Help"
+        eyebrow="Apa yang Saya Tawarkan"
         title="My"
         highlight="Services"
         className="mb-20"

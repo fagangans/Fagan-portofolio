@@ -12,8 +12,8 @@ export default function Footer() {
             FFA
           </span>
           <p className="mt-3 max-w-sm text-sm text-silver">
-            Crafting cinematic, world-class digital experiences at the
-            intersection of design and technology.
+            Membantu bisnis dan komunitas tampil profesional di dunia digital
+            dengan desain yang elegan dan teknologi modern.
           </p>
         </div>
 

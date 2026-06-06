@@ -79,8 +79,8 @@ export default function HeroSection() {
           transition={{ delay: 1.4, duration: 0.8 }}
           className="mt-8 max-w-2xl text-base md:text-lg text-silver"
         >
-          Crafting cinematic, world-class digital experiences at the
-          intersection of design, technology, and storytelling.
+          Membangun pengalaman digital yang modern, elegan, dan berkesan —
+          di perpaduan antara desain yang indah dan teknologi yang andal.
         </motion.p>
 
         <motion.div
@@ -90,16 +90,16 @@ export default function HeroSection() {
           className="mt-10 flex flex-col sm:flex-row items-center gap-4"
         >
           <a
-            href="#projects"
+            href="#services"
             className="group relative overflow-hidden rounded-full bg-gold-gradient px-8 py-3.5 text-sm font-semibold text-black transition-transform hover:scale-105"
           >
-            View Projects
+            View Portfolio
           </a>
           <a
             href="#contact"
             className="rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-gold hover:text-gold"
           >
-            Contact Me
+            Let&apos;s Talk
           </a>
         </motion.div>
 

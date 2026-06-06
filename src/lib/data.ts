@@ -9,10 +9,10 @@ import type {
 } from "@/types";
 
 export const stats: Stat[] = [
-  { value: "5+", label: "Years" },
-  { value: "50+", label: "Projects" },
-  { value: "30+", label: "Clients" },
-  { value: "10+", label: "Awards" },
+  { value: "5+", label: "Tahun" },
+  { value: "50+", label: "Proyek" },
+  { value: "30+", label: "Klien" },
+  { value: "10+", label: "Penghargaan" },
 ];
 
 export const projects: Project[] = [
@@ -158,102 +158,94 @@ export const services: Service[] = [
     id: 1,
     title: "Web Development",
     description:
-      "High-performance, scalable web applications built with modern frameworks and obsessive attention to detail.",
+      "Membangun aplikasi web modern yang cepat, aman, dan mudah dikembangkan. Setiap baris kode ditulis dengan penuh perhatian untuk memastikan performa dan pengalaman terbaik bagi pengguna.",
     icon: "Code2",
-    features: ["Next.js & React", "Performance First", "SEO Optimized"],
+    features: ["Next.js & React", "Performa Tinggi", "SEO Friendly"],
   },
   {
     id: 2,
-    title: "UI/UX Design",
+    title: "Frontend Development",
     description:
-      "Intuitive, beautiful interfaces grounded in user research and refined through rigorous iteration.",
-    icon: "Palette",
-    features: ["User Research", "Design Systems", "Prototyping"],
+      "Mengubah desain menjadi antarmuka yang hidup dan responsif di semua perangkat. Fokus pada detail visual, animasi halus, dan interaksi yang terasa alami.",
+    icon: "Monitor",
+    features: ["Responsive Design", "Animasi & Interaksi", "Cross-browser"],
   },
   {
     id: 3,
-    title: "Branding",
+    title: "UI/UX Design",
     description:
-      "Distinctive brand identities that tell your story and resonate with the audiences that matter.",
-    icon: "Gem",
-    features: ["Logo & Identity", "Brand Strategy", "Guidelines"],
+      "Merancang tampilan yang intuitif dan menarik berdasarkan kebutuhan pengguna nyata. Setiap elemen dirancang untuk memudahkan pengguna mencapai tujuan mereka.",
+    icon: "Palette",
+    features: ["Riset Pengguna", "Prototyping", "Design System"],
   },
   {
     id: 4,
-    title: "AI Solutions",
+    title: "Landing Page",
     description:
-      "Custom AI-powered products and automations that put cutting-edge models to work for your business.",
-    icon: "Sparkles",
-    features: ["LLM Apps", "Automation", "Custom Pipelines"],
-  },
-  {
-    id: 5,
-    title: "Content Strategy",
-    description:
-      "Compelling content systems that grow audiences and convert attention into lasting relationships.",
-    icon: "PenTool",
-    features: ["Editorial Planning", "Copywriting", "Distribution"],
+      "Membuat halaman landing yang dirancang khusus untuk mengkonversi pengunjung menjadi pelanggan. Tampilan profesional yang membangun kepercayaan dan mendorong aksi.",
+    icon: "Layout",
+    features: ["Konversi Tinggi", "Copywriting", "A/B Testing Ready"],
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sophia Laurent",
-    role: "CEO",
-    company: "Atelier Noir",
+    name: "Andi Saputra",
+    role: "Pemilik",
+    company: "Toko Furniture Jati Makmur",
     content:
-      "Fagan transformed our vision into a digital experience that feels nothing short of luxurious. Every pixel was intentional.",
+      "Website yang dibuat sangat membantu bisnis kami terlihat lebih profesional. Pelanggan sekarang bisa melihat katalog produk dengan mudah dan langsung menghubungi kami.",
     rating: 5,
     gradient: "from-amber-500 to-orange-600",
   },
   {
     id: 2,
-    name: "Marcus Chen",
-    role: "Founder",
-    company: "Helix Labs",
+    name: "Rizky Pratama",
+    role: "Ketua",
+    company: "Himpunan Mahasiswa Teknik Informatika",
     content:
-      "Rare combination of technical mastery and design taste. He shipped faster than our entire previous team and the quality was impeccable.",
+      "Komunikasi lancar, revisi cepat, dan hasil akhirnya sesuai dengan kebutuhan organisasi kami. Website acara tahunan kami jadi jauh lebih menarik dari sebelumnya.",
     rating: 5,
     gradient: "from-blue-500 to-indigo-600",
   },
   {
     id: 3,
-    name: "Isabella Rossi",
-    role: "Creative Director",
-    company: "Studio Lumen",
+    name: "Siti Rahayu",
+    role: "Pemilik",
+    company: "Butik Online Rahmayla",
     content:
-      "Working with Fagan elevated our brand to a level we didn't think was possible. A true craftsman and a delight to collaborate with.",
+      "Landing page toko online saya sekarang terlihat jauh lebih rapi dan elegan. Banyak pelanggan yang bilang website-nya enak dilihat dan mudah digunakan.",
     rating: 5,
     gradient: "from-rose-500 to-pink-600",
   },
   {
     id: 4,
-    name: "David Okafor",
-    role: "Product Lead",
-    company: "Nebula",
+    name: "Dimas Kurniawan",
+    role: "Pemilik",
+    company: "Kedai Kopi Nusantara",
     content:
-      "The 3D commerce experience he built doubled our engagement. Visionary work delivered with total professionalism.",
+      "Proses pembuatannya cepat dan hasilnya melebihi ekspektasi. Sekarang usaha kopi saya punya website yang bisa saya banggakan kepada pelanggan.",
     rating: 5,
     gradient: "from-emerald-500 to-teal-600",
   },
   {
     id: 5,
-    name: "Amara Singh",
-    role: "CMO",
-    company: "Aurora Group",
+    name: "Nadia Fitriani",
+    role: "Pengelola",
+    company: "Komunitas Desainer Kreatif Bandung",
     content:
-      "Strategic, meticulous, and endlessly creative. Fagan doesn't just execute briefs, he improves them.",
+      "Sangat memahami kebutuhan kami sebagai komunitas kreatif. Tampilan websitenya bersih, modern, dan mencerminkan identitas komunitas kami dengan baik.",
     rating: 5,
     gradient: "from-purple-500 to-violet-600",
   },
   {
     id: 6,
-    name: "Liam Foster",
-    role: "Investor",
-    company: "Vertex Capital",
+    name: "Bagas Wicaksono",
+    role: "Pemilik",
+    company: "Studio Foto Personal Brand",
     content:
-      "One of the most talented creatives I've backed. His work consistently outperforms expectations.",
+      "Portfolio online saya sekarang punya tampilan yang benar-benar profesional. Beberapa klien baru mengaku menemukan saya lewat website dan langsung tertarik.",
     rating: 5,
     gradient: "from-yellow-500 to-amber-600",
   },
@@ -346,7 +338,6 @@ export const blogPosts: BlogPost[] = [
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
   { label: "Services", href: "#services" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
