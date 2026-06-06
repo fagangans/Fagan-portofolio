@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skillCategories } from "@/lib/data";
+import { skillCategories } from "@/data/portfolio";
 import { getIcon } from "@/lib/icons";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";

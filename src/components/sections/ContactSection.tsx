@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Loader2, Check } from "lucide-react";
-import { socials } from "@/lib/data";
+import { socials, email, phone, location } from "@/data/portfolio";
 import { getIcon } from "@/lib/icons";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -52,9 +52,9 @@ export default function ContactSection() {
 
           <div className="mt-10 space-y-5">
             {[
-              { icon: Mail, label: "faganfabian4@gmail.com", href: "mailto:faganfabian4@gmail.com" },
-              { icon: Phone, label: "+1 (000) 000-0000", href: "https://wa.me/10000000000" },
-              { icon: MapPin, label: "Available Worldwide", href: "#" },
+              { icon: Mail,    label: email,    href: `mailto:${email}` },
+              { icon: Phone,   label: phone,    href: `https://wa.me/${phone.replace(/\D/g, "")}` },
+              { icon: MapPin,  label: location, href: "#" },
             ].map((item) => (
               <a
                 key={item.label}

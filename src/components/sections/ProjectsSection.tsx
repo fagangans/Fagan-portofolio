@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, X, ArrowUpRight } from "lucide-react";
-import { projects } from "@/lib/data";
-import type { Project } from "@/types";
+import { projects } from "@/data/portfolio";
+import type { Project } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const filters = ["All", "Web Dev", "Design", "Branding", "AI"] as const;

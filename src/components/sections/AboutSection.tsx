@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { User } from "lucide-react";
+import { name, tagline, biography } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const timeline = [
@@ -53,8 +54,8 @@ export default function AboutSection() {
             </div>
             <div className="absolute inset-0 bg-radial-glow" />
             <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-4">
-              <p className="font-serif text-lg text-white">Fagan Fabian Altair</p>
-              <p className="text-xs text-silver">Creative Developer &amp; Designer</p>
+              <p className="font-serif text-lg text-white">{name}</p>
+              <p className="text-xs text-silver">{tagline}</p>
             </div>
           </div>
         </motion.div>
@@ -65,18 +66,11 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-lg leading-relaxed text-silver">
-            I&apos;m a multidisciplinary creative blending{" "}
-            <span className="text-white">engineering precision</span> with{" "}
-            <span className="text-gold">design sensibility</span>. Over the past
-            five years I&apos;ve partnered with founders, studios, and global
-            brands to build digital products that feel inevitable &mdash;
-            elegant, fast, and unforgettable.
-          </p>
-          <p className="mt-4 leading-relaxed text-silver">
-            From immersive 3D web experiences to AI-powered products and complete
-            brand systems, I treat every project as a piece of craft.
-          </p>
+          {biography.split("\n\n").map((paragraph, i) => (
+            <p key={i} className={`${i > 0 ? "mt-4" : "text-lg"} leading-relaxed text-silver`}>
+              {paragraph}
+            </p>
+          ))}
 
           <div className="mt-10 grid grid-cols-3 gap-6">
             <Counter value={5} label="Years" />

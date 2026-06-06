@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Component, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { stats } from "@/lib/data";
+import { stats, name, tagline, shortBio } from "@/data/portfolio";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
@@ -28,7 +28,7 @@ class HeroSceneBoundary extends Component<
   }
 }
 
-const NAME = "FAGAN FABIAN ALTAIR";
+const NAME = name;
 
 const container = {
   hidden: {},
@@ -72,7 +72,7 @@ export default function HeroSection() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-gold"
         >
-          Creative Developer &middot; Designer &middot; Entrepreneur
+          {tagline}
         </motion.span>
 
         <motion.h1
@@ -107,8 +107,7 @@ export default function HeroSection() {
           transition={{ delay: 1.4, duration: 0.8 }}
           className="mt-8 max-w-2xl text-base md:text-lg text-silver"
         >
-          Crafting cinematic, world-class digital experiences at the
-          intersection of design, technology, and storytelling.
+          {shortBio}
         </motion.p>
 
         <motion.div
