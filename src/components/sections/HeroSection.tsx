@@ -1,11 +1,32 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { Component, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { stats } from "@/lib/data";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
+
+// Catches errors from the dynamically-loaded R3F canvas, which runs in a
+// separate React reconciler and can bypass the inner SceneErrorBoundary.
+class HeroSceneBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-black to-black" />
+      );
+    }
+    return this.props.children;
+  }
+}
 
 const NAME = "FAGAN FABIAN ALTAIR";
 
@@ -31,7 +52,9 @@ export default function HeroSection() {
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
     >
       <div className="absolute inset-0 z-0">
-        <HeroScene />
+        <HeroSceneBoundary>
+          <HeroScene />
+        </HeroSceneBoundary>
       </div>
 
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black" />
