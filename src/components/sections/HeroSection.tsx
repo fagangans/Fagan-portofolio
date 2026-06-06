@@ -63,7 +63,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-[#9A8152]"
+          className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-[#C0A870]"
         >
           {tagline}
         </motion.span>
@@ -73,7 +73,7 @@ export default function HeroSection() {
           initial="hidden"
           animate="visible"
           className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.95]"
-          style={{ perspective: 1000 }}
+          style={{ perspective: 1000, filter: "drop-shadow(0 0 40px rgba(255,248,240,0.12))" }}
         >
           {NAME.split(" ").map((word, wi) => (
             <span key={wi} className="mx-2 inline-block whitespace-nowrap">
