@@ -6,6 +6,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import { name, tagline, shortBio } from "@/data/portfolio";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,21 +21,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Fagan Fabian Altair — Creative Developer & Designer",
-  description:
-    "The portfolio of Fagan Fabian Altair — creative developer, designer, and entrepreneur crafting world-class digital experiences.",
+  title: `${name} — ${tagline}`,
+  description: `The portfolio of ${name} — ${shortBio}`,
   manifest: "/manifest.json",
-  keywords: [
-    "Fagan Fabian Altair",
-    "Creative Developer",
-    "Designer",
-    "Portfolio",
-    "Web Development",
-  ],
-  authors: [{ name: "Fagan Fabian Altair" }],
+  keywords: [name, "Creative Developer", "Designer", "Portfolio", "Web Development"],
+  authors: [{ name }],
   openGraph: {
-    title: "Fagan Fabian Altair — Creative Developer & Designer",
-    description: "World-class luxury portfolio.",
+    title: `${name} — ${tagline}`,
+    description: shortBio,
     type: "website",
   },
 };

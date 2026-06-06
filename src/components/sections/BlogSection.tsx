@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Clock, ArrowRight } from "lucide-react";
-import { blogPosts } from "@/lib/data";
+import { blogPosts } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function BlogSection() {
