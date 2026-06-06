@@ -1,19 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-
 export default function Error({
-  error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    // Surface the real error in the browser console for debugging.
-    console.error(error);
-  }, [error]);
-
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-black px-6 text-center">
       <span className="font-serif text-5xl font-bold tracking-widest text-gold-gradient">

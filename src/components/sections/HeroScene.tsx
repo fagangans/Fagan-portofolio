@@ -18,8 +18,6 @@ class SceneErrorBoundary extends Component<
   }
   render() {
     if (this.state.hasError) {
-      // Degrade gracefully: fall back to a static gradient backdrop
-      // instead of crashing the whole page if WebGL is unavailable.
       return <div className="absolute inset-0 bg-radial-glow" />;
     }
     return this.props.children;

@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { User } from "lucide-react";
-import { name, tagline, biography } from "@/data/portfolio";
+import { name, tagline, biography, profilePhoto } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const timeline = [
@@ -49,9 +50,20 @@ export default function AboutSection() {
           className="group"
         >
           <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-3xl bg-gradient-to-br from-gold/20 via-charcoal to-black border border-white/10 overflow-hidden transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(-8deg)_rotateX(4deg)]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <User className="h-32 w-32 text-gold/40" />
-            </div>
+            {profilePhoto ? (
+              <Image
+                src={profilePhoto}
+                alt={name}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 448px"
+                priority
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <User className="h-32 w-32 text-gold/40" />
+              </div>
+            )}
             <div className="absolute inset-0 bg-radial-glow" />
             <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-4">
               <p className="font-serif text-lg text-white">{name}</p>

@@ -96,9 +96,20 @@ export const biography = `I'm a multidisciplinary creative blending engineering 
 
 From immersive 3D web experiences to AI-powered products and complete brand systems, I treat every project as a piece of craft.`;
 
+// Path to your profile photo inside the /public directory.
+// Example: "/images/profile.jpg"
+// Leave as "" to show a styled placeholder.
+export const profilePhoto = "";
+
 export const email = "faganfabian4@gmail.com";
 
+// Display label shown in the Contact section.
+// Update with your real number — digits are extracted automatically for the WhatsApp link.
 export const phone = "+1 (000) 000-0000";
+
+// Optional: set an explicit WhatsApp number (digits only, with country code, e.g. "5491112345678").
+// If empty, the phone field above is used.
+export const whatsappNumber = "";
 
 export const location = "Available Worldwide";
 
@@ -197,6 +208,8 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 // ─── Projects ─────────────────────────────────────────────────
+// Replace liveUrl / githubUrl "#" placeholders with real URLs.
+// Set githubUrl to "" to hide the GitHub button for private/client work.
 
 export const projects: Project[] = [
   {
@@ -208,8 +221,8 @@ export const projects: Project[] = [
     category: "Web Dev",
     tech: ["Next.js", "TypeScript", "Three.js", "Stripe"],
     gradient: "from-amber-500/30 to-orange-700/30",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "#",    // TODO: replace with live URL
+    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
   },
   {
     id: 2,
@@ -220,8 +233,8 @@ export const projects: Project[] = [
     category: "Design",
     tech: ["Figma", "Storybook", "React", "Tailwind"],
     gradient: "from-purple-500/30 to-indigo-700/30",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "#",    // TODO: replace with live URL
+    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
   },
   {
     id: 3,
@@ -232,8 +245,8 @@ export const projects: Project[] = [
     category: "Branding",
     tech: ["Illustrator", "After Effects", "Brand Strategy"],
     gradient: "from-rose-500/30 to-pink-700/30",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "#",    // TODO: replace with live URL
+    githubUrl: "",   // design work — no repo
   },
   {
     id: 4,
@@ -244,8 +257,8 @@ export const projects: Project[] = [
     category: "AI",
     tech: ["Python", "OpenAI", "Next.js", "LangChain"],
     gradient: "from-emerald-500/30 to-teal-700/30",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "#",    // TODO: replace with live URL
+    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
   },
   {
     id: 5,
@@ -256,8 +269,8 @@ export const projects: Project[] = [
     category: "Web Dev",
     tech: ["React", "WebGL", "Rust", "ClickHouse"],
     gradient: "from-blue-500/30 to-cyan-700/30",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "#",    // TODO: replace with live URL
+    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
   },
   {
     id: 6,
@@ -268,8 +281,8 @@ export const projects: Project[] = [
     category: "AI",
     tech: ["WebXR", "TensorFlow.js", "Three.js"],
     gradient: "from-yellow-500/30 to-amber-700/30",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "#",    // TODO: replace with live URL
+    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
   },
 ];
 

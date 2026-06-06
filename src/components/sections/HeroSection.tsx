@@ -8,8 +8,6 @@ import { stats, name, tagline, shortBio } from "@/data/portfolio";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
-// Catches errors from the dynamically-loaded R3F canvas, which runs in a
-// separate React reconciler and can bypass the inner SceneErrorBoundary.
 class HeroSceneBoundary extends Component<
   { children: ReactNode },
   { hasError: boolean }
@@ -55,11 +53,6 @@ export default function HeroSection() {
         <HeroSceneBoundary>
           <HeroScene />
         </HeroSceneBoundary>
-      </div>
-
-      {/* Build verification marker — remove after confirming production deploy */}
-      <div className="absolute top-4 left-1/2 z-[200] -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-xs font-bold text-black tracking-widest shadow-lg">
-        HERO SCENE BUILD v2
       </div>
 
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black" />

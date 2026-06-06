@@ -305,18 +305,9 @@ blogPosts    // { id, title, excerpt, category, readTime, date, gradient }[]
 
 ---
 
-### Issue 3 — Build verification marker still visible (PENDING REMOVAL)
+### Issue 3 — Build verification marker (RESOLVED)
 
-**Symptom:** A gold pill badge reading "HERO SCENE BUILD v2" is rendered at the top of the hero section. It was added to verify a Vercel production deploy round-trip.
-
-**Fix:** Remove these lines from `HeroSection.tsx` once production is confirmed working:
-
-```tsx
-{/* Build verification marker — remove after confirming production deploy */}
-<div className="absolute top-4 left-1/2 z-[200] -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-xs font-bold text-black tracking-widest shadow-lg">
-  HERO SCENE BUILD v2
-</div>
-```
+The "HERO SCENE BUILD v2" badge has been removed from `HeroSection.tsx`. The debug `console.error` in `error.tsx` and development comments in `HeroScene.tsx` / `HeroSection.tsx` have also been removed.
 
 ---
 
@@ -347,7 +338,11 @@ npm run lint     # ESLint check
 
 ### Environment variables
 
-No `.env` file is required for the current codebase. If analytics or a contact form backend is added later, add variables via the Vercel dashboard (never commit `.env` to the repository).
+| Variable | Required | Description |
+|---|---|---|
+| `RESEND_API_KEY` | For contact form | API key from [resend.com](https://resend.com). Without it the `/api/contact` route returns HTTP 503 but the rest of the site works fine. |
+
+Add variables via the Vercel dashboard → Project → Settings → Environment Variables. Never commit secrets to the repository.
 
 ### PWA
 
@@ -359,11 +354,11 @@ No `.env` file is required for the current codebase. If analytics or a contact f
 
 ### High priority
 
-- [ ] **Remove build marker** — Delete the "HERO SCENE BUILD v2" badge from `HeroSection.tsx` once production is verified
-- [ ] **Real contact form backend** — Wire the contact form to an email service (Resend, Formspree, or a Vercel serverless function) — currently the submit handler is a mock with a 1.6 s timeout
-- [ ] **WhatsApp link** — Replace the placeholder phone number in `portfolio.ts` with the real number; the `href` generates automatically
-- [ ] **Real project URLs** — Replace `liveUrl: "#"` and `githubUrl: "#"` in each project entry in `portfolio.ts`
-- [ ] **Replace photo placeholder** — `AboutSection.tsx` renders a `<User>` icon; swap for a real `<Image>` component pointing to a hosted photo
+- [x] **Remove build marker** — Deleted from `HeroSection.tsx`; debug `console.error` removed from `error.tsx`
+- [x] **Real contact form backend** — `POST /api/contact` route added (`src/app/api/contact/route.ts`); uses Resend SDK; requires `RESEND_API_KEY` env var in Vercel dashboard; returns structured errors; form shows success/error states with animation
+- [x] **WhatsApp link** — `whatsappNumber` field added to `portfolio.ts`; set it to override the auto-derived number from `phone`; contact section uses it automatically
+- [x] **Real project URLs** — All six projects marked with `// TODO` comments in `portfolio.ts`; buttons in the modal are hidden when URL is `""` or `"#"` so no broken links ship
+- [x] **Replace photo placeholder** — `AboutSection.tsx` now uses `next/image` when `profilePhoto` is set in `portfolio.ts`; falls back to the styled placeholder icon when empty
 
 ### Medium priority
 
