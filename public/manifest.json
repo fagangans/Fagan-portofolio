@@ -1,0 +1,16 @@
+{
+  "name": "Fagan Fabian Altair — Portfolio",
+  "short_name": "FFA",
+  "description": "World-class luxury portfolio of Fagan Fabian Altair — Creative Developer & Designer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
