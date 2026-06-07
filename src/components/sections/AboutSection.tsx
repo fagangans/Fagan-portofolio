@@ -6,14 +6,12 @@ import { User } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const timeline = [
-  { year: "2020", title: "Memulai Perjalanan", desc: "Mulai belajar web development secara serius dan mengerjakan proyek pertama." },
-  { year: "2021", title: "Proyek Klien Pertama", desc: "Menyelesaikan proyek komersial pertama untuk bisnis lokal." },
-  { year: "2022", title: "Spesialisasi Frontend", desc: "Fokus pada React, Next.js, dan pengembangan antarmuka modern." },
-  { year: "2023", title: "UI/UX & Design System", desc: "Memperluas keahlian ke desain produk dan pengalaman pengguna." },
-  { year: "2024", title: "30+ Klien Terlayani", desc: "Berhasil membantu lebih dari 30 bisnis dan komunitas hadir secara digital." },
+  { year: "2017 – 2023", title: "SD Nurul Ilmi", desc: "Membangun fondasi akademik, disiplin belajar, dan ketertarikan awal terhadap teknologi serta kreativitas." },
+  { year: "2023 – 2026", title: "SMP Nurul Ilmi", desc: "Mengembangkan kemampuan berpikir kritis, eksplorasi teknologi digital, serta aktif dalam berbagai proyek pembelajaran." },
+  { year: "2026 – 2029", title: "SMA Unggul Garuda Baru Belitung Timur", desc: "Fokus pada pengembangan diri di bidang teknologi, desain, inovasi, dan kepemimpinan untuk mempersiapkan karier masa depan." },
 ];
 
-function Counter({ value, label }: { value: number; label: string }) {
+function Counter({ value, label, suffix = "" }: { value: number; label: string; suffix?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
   return (
@@ -24,7 +22,7 @@ function Counter({ value, label }: { value: number; label: string }) {
         transition={{ duration: 0.6 }}
         className="font-serif text-4xl md:text-5xl text-gold-gradient"
       >
-        {value}+
+        {value}{suffix}
       </motion.span>
       <span className="mt-1 text-xs uppercase tracking-[0.2em] text-silver">
         {label}
@@ -66,23 +64,24 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
         >
           <p className="text-lg leading-relaxed text-silver">
-            Saya adalah seorang web developer yang memadukan{" "}
-            <span className="text-white">ketelitian teknis</span> dengan{" "}
-            <span className="text-gold">kepekaan desain</span>. Selama lima
-            tahun terakhir, saya telah membantu berbagai bisnis lokal, komunitas,
-            dan personal brand untuk hadir secara digital dengan tampilan yang
-            profesional dan berkesan.
+            Saya adalah seorang pelajar yang memadukan{" "}
+            <span className="text-white">rasa ingin tahu teknis</span> dengan{" "}
+            <span className="text-gold">kepekaan desain</span>. Sejak duduk di
+            bangku SMP, saya mulai mengeksplorasi dunia teknologi, web
+            development, dan desain digital sebagai bagian dari perjalanan
+            belajar saya.
           </p>
           <p className="mt-4 leading-relaxed text-silver">
-            Dari landing page yang mengkonversi hingga aplikasi web yang
-            kompleks, setiap proyek saya kerjakan dengan dedikasi penuh
-            dan standar kualitas yang tinggi.
+            Saat ini saya tengah mempersiapkan diri di SMA Unggul Garuda Baru
+            Belitung Timur, berfokus pada pengembangan skill di bidang
+            teknologi, inovasi, dan kepemimpinan untuk masa depan.
           </p>
 
-          <div className="mt-10 grid grid-cols-3 gap-6">
-            <Counter value={5} label="Tahun" />
-            <Counter value={50} label="Proyek" />
-            <Counter value={30} label="Klien" />
+          <div className="mt-10 grid grid-cols-4 gap-6">
+            <Counter value={1} suffix="+" label="Tahun" />
+            <Counter value={1} label="Proyek" />
+            <Counter value={1} label="Klien" />
+            <Counter value={1} label="Award" />
           </div>
 
           <div className="mt-12 space-y-6">

@@ -17,9 +17,9 @@ export default function AchievementsSection() {
   return (
     <section id="achievements" className="section-pad relative bg-charcoal/30">
       <SectionHeading
-        eyebrow="The Journey"
-        title="Achievements &amp;"
-        highlight="Milestones"
+        eyebrow="Perjalanan Saya"
+        title="Riwayat"
+        highlight="Pendidikan"
         className="mb-20"
       />
 
