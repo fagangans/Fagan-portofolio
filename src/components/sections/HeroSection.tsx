@@ -1,13 +1,32 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { Component, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { stats } from "@/lib/data";
+import { stats, name, tagline, shortBio } from "@/data/portfolio";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
-const NAME = "FAGAN FABIAN ALTAIR";
+class HeroSceneBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-black to-black" />
+      );
+    }
+    return this.props.children;
+  }
+}
+
+const NAME = name;
 
 const container = {
   hidden: {},
@@ -31,7 +50,9 @@ export default function HeroSection() {
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
     >
       <div className="absolute inset-0 z-0">
-        <HeroScene />
+        <HeroSceneBoundary>
+          <HeroScene />
+        </HeroSceneBoundary>
       </div>
 
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black" />
@@ -42,9 +63,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-gold"
+          className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-[#C0A870]"
         >
-          Creative Developer &middot; Designer &middot; Entrepreneur
+          {tagline}
         </motion.span>
 
         <motion.h1
@@ -52,7 +73,7 @@ export default function HeroSection() {
           initial="hidden"
           animate="visible"
           className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.95]"
-          style={{ perspective: 1000 }}
+          style={{ perspective: 1000, filter: "drop-shadow(0 0 40px rgba(255,248,240,0.12))" }}
         >
           {NAME.split(" ").map((word, wi) => (
             <span key={wi} className="mx-2 inline-block whitespace-nowrap">
@@ -63,7 +84,7 @@ export default function HeroSection() {
                   className={
                     wi === 1
                       ? "inline-block text-gold-gradient"
-                      : "inline-block text-gradient"
+                      : "inline-block text-hero-name"
                   }
                 >
                   {char}
@@ -79,8 +100,7 @@ export default function HeroSection() {
           transition={{ delay: 1.4, duration: 0.8 }}
           className="mt-8 max-w-2xl text-base md:text-lg text-silver"
         >
-          Membangun pengalaman digital yang modern, elegan, dan berkesan —
-          di perpaduan antara desain yang indah dan teknologi yang andal.
+          {shortBio}
         </motion.p>
 
         <motion.div
@@ -90,16 +110,16 @@ export default function HeroSection() {
           className="mt-10 flex flex-col sm:flex-row items-center gap-4"
         >
           <a
-            href="#services"
+            href="#projects"
             className="group relative overflow-hidden rounded-full bg-gold-gradient px-8 py-3.5 text-sm font-semibold text-black transition-transform hover:scale-105"
           >
-            View Portfolio
+            View Projects
           </a>
           <a
             href="#contact"
             className="rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-gold hover:text-gold"
           >
-            Let&apos;s Talk
+            Contact Me
           </a>
         </motion.div>
 
