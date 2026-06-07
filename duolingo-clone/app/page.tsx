@@ -6,7 +6,7 @@ import BottomNav from "@/components/BottomNav";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F7F7F7]">
+    <div className="flex flex-col min-h-screen" style={{ background: "#FFFFFF" }}>
       <StatusBar />
       <div className="flex-1 overflow-y-auto pb-20">
         <XPBanner section={2} unit={2} title="Memberikan tur rumah" />

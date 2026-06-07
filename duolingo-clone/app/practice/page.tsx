@@ -9,85 +9,75 @@ export default function PracticePage() {
     <div className="flex flex-col min-h-screen bg-[#F7F7F7]">
       {/* Header */}
       <div
-        className="px-4 pt-10 pb-6"
-        style={{ background: "linear-gradient(135deg, #1CB0F6 0%, #0A95DB 100%)" }}
+        className="px-4 pt-10 pb-16 relative overflow-hidden"
+        style={{ background: "#1CB0F6" }}
       >
         <h1 className="text-white font-black text-2xl">Latihan</h1>
-        <p className="text-white/80 text-sm mt-1">Perkuat bagian-bagian lemahmu</p>
+        <div className="absolute right-4 top-4 text-6xl opacity-90">🎯</div>
       </div>
 
-      <div className="flex-1 overflow-y-auto pb-20 pt-4">
-        {/* Start Practice CTA */}
-        <div className="mx-4 mb-5">
-          <div className="bg-white rounded-3xl p-5 shadow-lg">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-4xl">💪</span>
-              <div>
-                <p className="font-black text-base text-gray-800">Perkuat bagian-bagian lemahmu</p>
-                <p className="text-xs text-gray-500">Latihan terpersonalisasi untukmu</p>
-              </div>
-            </div>
-            <Link href="/lesson/practice">
-              <motion.button
-                className="w-full py-3 rounded-full text-white font-black text-sm uppercase"
-                style={{ background: "#58CC02", boxShadow: "0 4px 0 #45A800" }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97, y: 3 }}
-              >
-                MULAI +20 XP
-              </motion.button>
-            </Link>
-          </div>
+      {/* Floating CTA card over header */}
+      <div className="px-4 -mt-10 mb-4 relative z-10">
+        <div className="bg-white rounded-3xl p-4 shadow-lg">
+          <p className="font-extrabold text-base text-gray-800 mb-3">Perkuat bagian-bagian lemahmu</p>
+          <Link href="/lesson/practice">
+            <motion.button
+              className="w-full py-3 rounded-full text-white font-black text-sm uppercase"
+              style={{ background: "#1CB0F6", boxShadow: "0 4px 0 #0A95DB" }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97, y: 3 }}
+            >
+              MULAI +20 XP
+            </motion.button>
+          </Link>
         </div>
+      </div>
 
+      <div className="flex-1 overflow-y-auto pb-20">
         {/* Percakapan Section */}
         <div className="px-4 mb-3">
-          <h2 className="font-black text-gray-700 text-sm uppercase tracking-wider mb-3">PERCAKAPAN</h2>
-          <div className="space-y-3">
-            <PracticeCard
-              icon="🎤"
-              title="Berbicara Bebas"
-              subtitle="Latih percakapan alami"
-              badge="MAX"
-              badgeColor="#7B3FE4"
-            />
-            <PracticeCard
-              icon="📹"
-              title="Panggilan Video"
-              subtitle="Bicara dengan karakter AI"
-              badge="BARU"
-              badgeColor="#FF4FB3"
-            />
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-black text-gray-500 text-xs uppercase tracking-widest">PERCAKAPAN</h2>
+            <div className="bg-black rounded px-2 py-0.5">
+              <span className="text-white font-black text-xs">MAX</span>
+            </div>
           </div>
+          <PracticeCard
+            icon="📹"
+            title="Panggilan Video"
+            badge="BARU"
+            badgeColor="#FF4B4B"
+            iconBg="#E8CCFF"
+          />
         </div>
 
         {/* Latihan Keahlian Section */}
         <div className="px-4 mb-3">
-          <h2 className="font-black text-gray-700 text-sm uppercase tracking-wider mb-3">LATIHAN KEAHLIAN</h2>
+          <h2 className="font-black text-gray-500 text-xs uppercase tracking-widest mb-3">LATIHAN KEAHLIAN</h2>
           <div className="space-y-3">
             <PracticeCard
-              icon="❌"
+              icon="🔄"
               title="Kesalahan"
-              subtitle="Pelajari dari kesalahanmu"
               badge="30+"
               badgeColor="#FF4B4B"
+              iconBg="#FFE0B2"
             />
             <PracticeCard
               icon="📝"
               title="Kata"
-              subtitle="Perbanyak kosakata"
               badge="30+"
               badgeColor="#FF9600"
+              iconBg="#E3F2FF"
             />
             <PracticeCard
-              icon="👂"
+              icon="🔊"
               title="Mendengar"
-              subtitle="Tingkatkan kemampuan dengar"
+              iconBg="#E0F7FF"
             />
             <PracticeCard
-              icon="🗣️"
+              icon="🎤"
               title="Berbicara"
-              subtitle="Latih pengucapan"
+              iconBg="#E0FFE8"
             />
           </div>
         </div>

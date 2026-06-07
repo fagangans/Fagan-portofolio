@@ -10,47 +10,60 @@ interface PlanCardProps {
   color: string;
   shadowColor: string;
   popular?: boolean;
+  icon?: string;
 }
 
-export default function PlanCard({ name, tagline, price, features, ctaText, color, shadowColor, popular }: PlanCardProps) {
+export default function PlanCard({ name, tagline, price, features, ctaText, color, shadowColor, popular, icon = "✨" }: PlanCardProps) {
   return (
     <motion.div
-      className="bg-white rounded-3xl p-5 mx-4 mb-4 shadow-lg relative overflow-hidden"
+      className="mx-4 mb-4 overflow-hidden"
+      style={{ borderRadius: 24, boxShadow: "0 4px 20px rgba(0,0,0,0.12)" }}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
       {popular && (
-        <div className="absolute top-3 right-3 bg-yellow-400 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-          POPULER
+        <div
+          className="px-4 py-2 flex items-center"
+          style={{ background: "linear-gradient(90deg, #9B59B6 0%, #2ECC71 100%)" }}
+        >
+          <span className="text-white font-black text-xs uppercase tracking-[0.15em]">REKOMENDASI</span>
         </div>
       )}
-      <div className="flex items-center gap-2 mb-2">
-        <div className="w-10 h-10 rounded-full flex items-center justify-center text-xl" style={{ background: color + "20" }}>
-          ✨
-        </div>
-        <div>
-          <p className="font-black text-base text-gray-800">{name}</p>
-          <p className="text-xs text-gray-500">{tagline}</p>
-        </div>
-      </div>
-      <div className="mb-4">
-        {features.map((f, i) => (
-          <div key={i} className="flex items-center gap-2 py-1.5 border-b border-gray-100">
-            <span className="text-green-500 font-bold text-sm">✓</span>
-            <span className="text-sm text-gray-700">{f}</span>
+      <div className="bg-white px-5 pt-4 pb-5" style={{ borderRadius: popular ? "0 0 24px 24px" : 24 }}>
+        <div className="flex items-start justify-between mb-4">
+          <div>
+            <p className="font-black text-xl text-gray-800">{name}</p>
+            <p className="text-sm text-gray-500 mt-0.5">{tagline}</p>
           </div>
-        ))}
+          <div className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl flex-shrink-0 ml-3"
+               style={{ background: color + "15" }}>
+            {icon}
+          </div>
+        </div>
+        <div className="mb-5 space-y-2.5">
+          {features.map((f, i) => (
+            <div key={i} className="flex items-center gap-2.5">
+              <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                   style={{ background: "#58CC0220" }}>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6L5 9L10 3" stroke="#58CC02" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <span className="text-sm text-gray-700 font-medium">{f}</span>
+            </div>
+          ))}
+        </div>
+        {price && <p className="text-center text-xs text-gray-400 mb-3 font-medium">{price}</p>}
+        <motion.button
+          className="w-full py-3.5 rounded-full text-white font-black text-sm uppercase tracking-wider"
+          style={{ background: color, boxShadow: `0 5px 0 ${shadowColor}` }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97, y: 4 }}
+        >
+          {ctaText}
+        </motion.button>
       </div>
-      {price && <p className="text-center text-xs text-gray-400 mb-2">{price}</p>}
-      <motion.button
-        className="w-full py-3 rounded-full text-white font-black text-sm uppercase tracking-wider"
-        style={{ background: color, boxShadow: `0 4px 0 ${shadowColor}` }}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97, y: 3, boxShadow: `0 1px 0 ${shadowColor}` }}
-      >
-        {ctaText}
-      </motion.button>
     </motion.div>
   );
 }
