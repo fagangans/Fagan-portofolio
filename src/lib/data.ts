@@ -10,9 +10,9 @@ import type {
 
 export const stats: Stat[] = [
   { value: "1+", label: "Tahun" },
-  { value: "1",  label: "Proyek" },
-  { value: "1",  label: "Klien" },
-  { value: "1",  label: "Award" },
+  { value: "1", label: "Proyek" },
+  { value: "1", label: "Klien" },
+  { value: "1", label: "Award" },
 ];
 
 export const projects: Project[] = [

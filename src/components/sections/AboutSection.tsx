@@ -1,10 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { User } from "lucide-react";
-import { name, tagline, biography, profilePhoto } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const timeline = [
@@ -36,7 +34,7 @@ function Counter({ value, label, suffix = "" }: { value: number; label: string; 
 export default function AboutSection() {
   return (
     <section id="about" className="section-pad relative">
-      <SectionHeading eyebrow="Who I Am" title="About" highlight="Me" className="mb-20" />
+      <SectionHeading eyebrow="Tentang Saya" title="About" highlight="Me" className="mb-20" />
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
         <motion.div
@@ -48,36 +46,13 @@ export default function AboutSection() {
           className="group"
         >
           <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-3xl bg-gradient-to-br from-gold/20 via-charcoal to-black border border-white/10 overflow-hidden transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(-8deg)_rotateX(4deg)]">
-            {profilePhoto ? (
-              <Image
-                src={profilePhoto}
-                alt={name}
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 448px"
-                priority
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <User className="h-32 w-32 text-gold/40" />
-              </div>
-            )}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <User className="h-32 w-32 text-gold/40" />
+            </div>
             <div className="absolute inset-0 bg-radial-glow" />
-            {/* Darkened gradient at bottom to ensure text legibility over any photo */}
-            <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/15 bg-black/60 p-4 backdrop-blur-xl shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
-              <p
-                className="font-serif text-lg font-semibold text-[#E8D7A5]"
-                style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}
-              >
-                {name}
-              </p>
-              <p
-                className="mt-0.5 text-xs text-[#F0EDE6]/85"
-                style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}
-              >
-                {tagline}
-              </p>
+            <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-4">
+              <p className="font-serif text-lg text-white">Fagan Fabian Altair</p>
+              <p className="text-xs text-silver">Creative Developer &amp; Designer</p>
             </div>
           </div>
         </motion.div>
@@ -88,14 +63,22 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {biography.split("\n\n").map((paragraph, i) => (
-            <p key={i} className={`${i > 0 ? "mt-4" : "text-lg"} leading-relaxed text-silver`}>
-              {paragraph}
-            </p>
-          ))}
+          <p className="text-lg leading-relaxed text-silver">
+            Saya adalah seorang pelajar yang memadukan{" "}
+            <span className="text-white">rasa ingin tahu teknis</span> dengan{" "}
+            <span className="text-gold">kepekaan desain</span>. Sejak duduk di
+            bangku SMP, saya mulai mengeksplorasi dunia teknologi, web
+            development, dan desain digital sebagai bagian dari perjalanan
+            belajar saya.
+          </p>
+          <p className="mt-4 leading-relaxed text-silver">
+            Saat ini saya tengah mempersiapkan diri di SMA Unggul Garuda Baru
+            Belitung Timur, berfokus pada pengembangan skill di bidang
+            teknologi, inovasi, dan kepemimpinan untuk masa depan.
+          </p>
 
           <div className="mt-10 grid grid-cols-4 gap-6">
-            <Counter value={1} label="Tahun" suffix="+" />
+            <Counter value={1} suffix="+" label="Tahun" />
             <Counter value={1} label="Proyek" />
             <Counter value={1} label="Klien" />
             <Counter value={1} label="Award" />
