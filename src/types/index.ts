@@ -4,8 +4,6 @@ export type {
   ProjectCategory,
   AchievementType,
   Project,
-  Skill,
-  SkillCategory,
   Testimonial,
   Achievement,
   BlogPost,
