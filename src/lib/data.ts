@@ -1,5 +1,6 @@
 import type {
   Project,
+  SkillCategory,
   Testimonial,
   Achievement,
   BlogPost,
@@ -89,6 +90,68 @@ export const projects: Project[] = [
   },
 ];
 
+export const skillCategories: SkillCategory[] = [
+  {
+    category: "Frontend",
+    icon: "Code2",
+    skills: [
+      { name: "React / Next.js", level: 95 },
+      { name: "TypeScript", level: 92 },
+      { name: "Three.js / WebGL", level: 85 },
+      { name: "Tailwind CSS", level: 96 },
+    ],
+  },
+  {
+    category: "Backend",
+    icon: "Server",
+    skills: [
+      { name: "Node.js", level: 88 },
+      { name: "PostgreSQL", level: 84 },
+      { name: "GraphQL", level: 80 },
+      { name: "Cloud / DevOps", level: 78 },
+    ],
+  },
+  {
+    category: "UI/UX",
+    icon: "Palette",
+    skills: [
+      { name: "Figma", level: 93 },
+      { name: "Design Systems", level: 90 },
+      { name: "Prototyping", level: 88 },
+      { name: "Motion Design", level: 82 },
+    ],
+  },
+  {
+    category: "AI Tools",
+    icon: "Sparkles",
+    skills: [
+      { name: "LLM Integration", level: 89 },
+      { name: "Prompt Engineering", level: 91 },
+      { name: "LangChain", level: 80 },
+      { name: "Vector Databases", level: 76 },
+    ],
+  },
+  {
+    category: "Content Creation",
+    icon: "Video",
+    skills: [
+      { name: "Video Editing", level: 84 },
+      { name: "Copywriting", level: 87 },
+      { name: "Photography", level: 79 },
+      { name: "Storytelling", level: 90 },
+    ],
+  },
+  {
+    category: "Business",
+    icon: "Briefcase",
+    skills: [
+      { name: "Product Strategy", level: 86 },
+      { name: "Client Relations", level: 92 },
+      { name: "Team Leadership", level: 85 },
+      { name: "Growth Marketing", level: 81 },
+    ],
+  },
+];
 
 export const services: Service[] = [
   {
@@ -250,6 +313,7 @@ export const blogPosts: BlogPost[] = [
 
 export const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Services", href: "#services" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
