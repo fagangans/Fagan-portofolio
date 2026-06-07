@@ -4,124 +4,142 @@ import { useGameStore } from "@/store/gameStore";
 import LessonNode from "./LessonNode";
 
 type NodeType = "book" | "headphone" | "translate" | "dumbbell" | "video" | "speaking";
-type Position = "left" | "center" | "right";
 
-const PATH_NODES: Array<{ type: NodeType; position: Position }> = [
-  { type: "book", position: "center" },
-  { type: "headphone", position: "right" },
-  { type: "translate", position: "right" },
-  { type: "book", position: "center" },
-  { type: "speaking", position: "left" },
-  { type: "headphone", position: "left" },
-  { type: "dumbbell", position: "center" },
-  { type: "video", position: "right" },
-  { type: "book", position: "right" },
-  { type: "translate", position: "center" },
-  { type: "speaking", position: "left" },
-  { type: "headphone", position: "left" },
-  { type: "book", position: "center" },
-  { type: "dumbbell", position: "right" },
-  { type: "video", position: "right" },
-  { type: "translate", position: "center" },
-  { type: "speaking", position: "left" },
-  { type: "book", position: "left" },
-  { type: "headphone", position: "center" },
-  { type: "dumbbell", position: "right" },
+const PATH_NODES: Array<{ type: NodeType }> = [
+  { type: "book" },
+  { type: "headphone" },
+  { type: "translate" },
+  { type: "book" },
+  { type: "speaking" },
+  { type: "headphone" },
+  { type: "dumbbell" },
+  { type: "video" },
+  { type: "book" },
+  { type: "translate" },
+  { type: "speaking" },
+  { type: "headphone" },
+  { type: "book" },
+  { type: "dumbbell" },
+  { type: "video" },
+  { type: "translate" },
+  { type: "speaking" },
+  { type: "book" },
+  { type: "headphone" },
+  { type: "dumbbell" },
 ];
 
-const getMargin = (pos: Position) => {
-  if (pos === "left") return { marginLeft: 24, marginRight: "auto" };
-  if (pos === "right") return { marginLeft: "auto", marginRight: 24 };
-  return { marginLeft: "auto", marginRight: "auto" };
-};
+// 6-position S-curve rhythm (cycle of 8)
+const POSITIONS = [180, 240, 270, 240, 180, 110, 60, 110];
+
+// Chest SVG — gray stone box
+function ChestSVG() {
+  return (
+    <svg width="58" height="58" viewBox="0 0 58 58" fill="none">
+      <rect x="6" y="26" width="46" height="26" rx="4" fill="#C8C8C8"/>
+      <rect x="6" y="18" width="46" height="12" rx="4" fill="#D8D8D8"/>
+      <rect x="6" y="24" width="46" height="5" fill="#B0B0B0"/>
+      <rect x="22" y="28" width="14" height="10" rx="3" fill="#A0A0A0"/>
+      <rect x="26" y="31" width="6" height="4" rx="2" fill="#888"/>
+      {/* Metal strap */}
+      <rect x="6" y="22" width="46" height="4" rx="2" fill="#999"/>
+    </svg>
+  );
+}
+
+// Chess rook SVG for CATUR NPC
+function ChessRookSVG() {
+  return (
+    <svg width="56" height="64" viewBox="0 0 56 64" fill="none">
+      {/* Base */}
+      <rect x="8" y="50" width="40" height="10" rx="3" fill="#5C4033"/>
+      {/* Body */}
+      <rect x="12" y="22" width="32" height="30" rx="2" fill="#795548"/>
+      {/* Neck */}
+      <rect x="16" y="16" width="24" height="10" rx="2" fill="#6D4C41"/>
+      {/* Battlements */}
+      <rect x="10" y="8" width="10" height="12" rx="2" fill="#795548"/>
+      <rect x="36" y="8" width="10" height="12" rx="2" fill="#795548"/>
+      <rect x="23" y="8" width="10" height="12" rx="2" fill="#795548"/>
+      {/* Face */}
+      <ellipse cx="22" cy="34" rx="3" ry="4" fill="#3E2723"/>
+      <ellipse cx="34" cy="34" rx="3" ry="4" fill="#3E2723"/>
+      <path d="M22 44 Q28 48 34 44" stroke="#3E2723" strokeWidth="2" fill="none" strokeLinecap="round"/>
+    </svg>
+  );
+}
 
 export default function LessonPath() {
   const { completedLessons, activeLessonIndex } = useGameStore();
 
   return (
     <div className="pb-10 pt-2" style={{ background: "#FFFFFF" }}>
-      {/* Vertical path line */}
-      <div className="relative">
-        <div
-          className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 pointer-events-none"
-          style={{ background: "repeating-linear-gradient(to bottom, #E0E0E0 0, #E0E0E0 8px, transparent 8px, transparent 16px)" }}
-        />
+      <div className="relative" style={{ width: "100%" }}>
+        {PATH_NODES.map((node, i) => {
+          const state = completedLessons.includes(i)
+            ? "completed"
+            : i === activeLessonIndex
+            ? "active"
+            : "locked";
 
-        <div className="flex flex-col">
-          {PATH_NODES.map((node, i) => {
-            const state = completedLessons.includes(i)
-              ? "completed"
-              : i === activeLessonIndex
-              ? "active"
-              : "locked";
+          const marginLeft = POSITIONS[i % 8];
+          const showChest = i > 0 && i % 8 === 0;
+          // Stars appear to the right of completed nodes (not active/locked)
+          const showStars = state === "completed" && i % 4 === 3;
 
-            const showStars = i > 0 && i % 5 === 0 && state !== "locked";
-            const showChest = i > 0 && i % 8 === 0;
-
-            return (
-              <div key={i}>
-                {showChest && (
-                  <motion.div
-                    className="flex justify-center my-2"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: i * 0.04, type: "spring" }}
-                  >
-                    <div className="flex flex-col items-center gap-1">
-                      <div
-                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
-                        style={{ background: "#F5F5F5", boxShadow: "0 4px 0 #CCCCCC", border: "2px solid #E5E5E5" }}
-                      >
-                        🧰
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-
-                {showStars && (
-                  <div className="flex justify-center gap-2 my-1">
-                    {[0, 1, 2].map(s => (
-                      <span key={s} className="text-yellow-400 text-xl">⭐</span>
-                    ))}
-                  </div>
-                )}
-
+          return (
+            <div key={i}>
+              {showChest && (
                 <motion.div
-                  className="flex relative z-10"
-                  style={{ height: 96, alignItems: "center" }}
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.04, type: "spring", stiffness: 300, damping: 20 }}
+                  className="flex items-center my-1"
+                  style={{ marginLeft: POSITIONS[i % 8] - 10 }}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: Math.min(i * 0.03, 0.3), type: "spring" }}
                 >
-                  <div style={{ ...getMargin(node.position) }}>
-                    <LessonNode id={i} type={node.type} state={state} />
-                  </div>
+                  <ChestSVG />
                 </motion.div>
+              )}
 
-                {!showStars && state === "completed" && i % 3 === 2 && (
-                  <div className="flex justify-center gap-1.5 -mt-2 mb-1">
+              <motion.div
+                className="relative flex items-center"
+                style={{ height: 96 }}
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: Math.min(i * 0.03, 0.3), type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div style={{ marginLeft }}>
+                  <LessonNode id={i} type={node.type} state={state} />
+                </div>
+
+                {/* Stars to the right of the node for milestone lessons */}
+                {showStars && (
+                  <div
+                    className="absolute flex gap-1"
+                    style={{ left: marginLeft + 72, top: "50%", transform: "translateY(-50%)" }}
+                  >
                     {[0, 1, 2].map(s => (
-                      <span key={s} className="text-yellow-300 text-sm">☆</span>
+                      <svg key={s} width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M9 2L10.8 6.8H16L11.8 9.7L13.4 14.5L9 11.8L4.6 14.5L6.2 9.7L2 6.8H7.2L9 2Z"
+                          fill={s === 0 ? "#FFD700" : "#E0E0E0"} stroke="#E0C000" strokeWidth="0.5"/>
+                      </svg>
                     ))}
                   </div>
                 )}
-              </div>
-            );
-          })}
-        </div>
+              </motion.div>
+            </div>
+          );
+        })}
 
-        {/* NPC at bottom */}
-        <div className="flex flex-col items-start px-4 mt-4 gap-2">
-          <div className="flex items-center gap-3">
-            <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-4xl">
-              🧙
-            </div>
-            <div
-              className="rounded-full px-5 py-2"
-              style={{ background: "#58CC02", boxShadow: "0 3px 0 #45A800" }}
-            >
-              <span className="text-white font-black text-sm">CATUR</span>
-            </div>
+        {/* NPC CATUR at bottom */}
+        <div className="flex items-end gap-3 px-6 mt-6 mb-4">
+          <div className="flex flex-col items-center">
+            <ChessRookSVG />
+          </div>
+          <div
+            className="rounded-full px-5 py-2 mb-3"
+            style={{ background: "#58CC02", boxShadow: "0 3px 0 #45A800" }}
+          >
+            <span className="text-white font-black text-sm">CATUR</span>
           </div>
         </div>
       </div>

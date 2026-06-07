@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { ReactElement } from "react";
@@ -31,8 +32,10 @@ const nodeIcons: Record<NodeType, ReactElement> = {
   ),
   translate: (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M8 10L14 16L20 10" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 18L14 12L20 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
+      <path d="M5 14C5 9.03 9.03 5 14 5C17.2 5 20 6.6 21.7 9" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M23 14C23 18.97 18.97 23 14 23C10.8 23 8 21.4 6.3 19" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M19 7L22 9L19 11" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M9 17L6 19L9 21" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
   dumbbell: (
@@ -89,8 +92,10 @@ const lockedIcons: Record<NodeType, ReactElement> = {
   ),
   translate: (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M8 10L14 16L20 10" stroke="#AFAFAF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 18L14 12L20 18" stroke="#AFAFAF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M5 14C5 9.03 9.03 5 14 5C17.2 5 20 6.6 21.7 9" stroke="#AFAFAF" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M23 14C23 18.97 18.97 23 14 23C10.8 23 8 21.4 6.3 19" stroke="#AFAFAF" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M19 7L22 9L19 11" stroke="#AFAFAF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M9 17L6 19L9 21" stroke="#AFAFAF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
   dumbbell: (
@@ -128,43 +133,45 @@ const lockedIcons: Record<NodeType, ReactElement> = {
   ),
 };
 
-const activeAnim = {
-  y: [0, -8, 0] as number[],
-};
-
 export default function LessonNode({ id, type, state, size = "md" }: LessonNodeProps) {
-  const sizeMap = { sm: 56, md: 66, lg: 74 };
+  const sizeMap = { sm: 56, md: 66, lg: 68 };
   const dim = state === "active" ? sizeMap["lg"] : sizeMap[size];
 
-  const getBg = () => {
-    if (state === "locked") return "#E5E5E5";
-    return "#FF4FB3";
-  };
-
-  const getShadow = () => {
-    if (state === "active") return "0 0 0 5px white, 0 0 0 9px #FF4FB3, 0 6px 0 #CC0093";
+  const getBg = () => state === "locked" ? "#E5E5E5" : "#FF4FB3";
+  const getInnerShadow = () => {
     if (state === "locked") return "0 5px 0 #B5B5B5";
     return "0 5px 0 #CC0093";
   };
 
   const icon = state === "locked" ? lockedIcons[type] : nodeIcons[type];
 
+  // Outer wrapper: holds the ring (static, doesn't move)
+  const ringStyle: React.CSSProperties = state === "active" ? {
+    borderRadius: "9999px",
+    padding: 5,
+    background: "white",
+    boxShadow: "0 0 0 4px #FF4FB3",
+    display: "inline-flex",
+  } : { display: "inline-flex" };
+
   const inner = (
-    <motion.div
-      className="relative flex items-center justify-center rounded-full select-none cursor-pointer"
-      style={{
-        width: dim,
-        height: dim,
-        background: getBg(),
-        boxShadow: getShadow(),
-      }}
-      animate={state === "active" ? activeAnim : {}}
-      transition={state === "active" ? { repeat: Infinity, duration: 1.2, ease: "easeInOut" } : {}}
-      whileHover={{ scale: state !== "locked" ? 1.08 : 1 }}
-      whileTap={state !== "locked" ? { scale: 0.93, y: 4 } : {}}
-    >
-      {icon}
-    </motion.div>
+    <div style={ringStyle}>
+      <motion.div
+        className="relative flex items-center justify-center rounded-full select-none cursor-pointer"
+        style={{
+          width: dim,
+          height: dim,
+          background: getBg(),
+          boxShadow: getInnerShadow(),
+        }}
+        animate={state === "active" ? { y: [0, -8, 0] } : {}}
+        transition={state === "active" ? { repeat: Infinity, duration: 1.2, ease: "easeInOut" } : {}}
+        whileHover={{ scale: state !== "locked" ? 1.08 : 1 }}
+        whileTap={state !== "locked" ? { scale: 0.93, y: 4 } : {}}
+      >
+        {icon}
+      </motion.div>
+    </div>
   );
 
   if (state === "locked") return inner;

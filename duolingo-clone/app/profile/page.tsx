@@ -108,10 +108,58 @@ export default function ProfilePage() {
 
         {/* Menu items */}
         <div className="mt-2">
-          <ProfileMenuItem icon="👤" label="Profil" />
-          <ProfileMenuItem icon="🔊" label="Bunyi" />
-          <ProfileMenuItem icon="📹" label="Panggilan Video" />
-          <ProfileMenuItem icon="💪" label="Latihan" />
+          <ProfileMenuItem
+            icon={
+              <div className="w-10 h-10 rounded-2xl flex items-center justify-center" style={{ background: "#E8F9FF" }}>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <ellipse cx="11" cy="8" rx="5" ry="5.5" fill="#1CB0F6"/>
+                  <path d="M3 20C3 16 6.5 13 11 13C15.5 13 19 16 19 20" stroke="#1CB0F6" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </div>
+            }
+            label="Profil"
+          />
+          <ProfileMenuItem
+            icon={
+              <div className="w-10 h-10 rounded-2xl flex items-center justify-center" style={{ background: "#FFF0E8" }}>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <ellipse cx="11" cy="13" rx="8" ry="6" fill="#FF6B35"/>
+                  <ellipse cx="11" cy="11" rx="6" ry="5" fill="#FF8C55"/>
+                  {/* Teeth */}
+                  <rect x="7" y="13" width="3" height="3" rx="0.5" fill="white"/>
+                  <rect x="11" y="13" width="3" height="3" rx="0.5" fill="white"/>
+                  {/* Tongue */}
+                  <ellipse cx="11" cy="16" rx="3" ry="2" fill="#FF4444"/>
+                </svg>
+              </div>
+            }
+            label="Bunyi"
+          />
+          <ProfileMenuItem
+            icon={
+              <div className="w-10 h-10 rounded-2xl flex items-center justify-center" style={{ background: "#F0E8FF" }}>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <rect x="2" y="5" width="13" height="11" rx="2.5" fill="#9B59B6"/>
+                  <path d="M15 9L20 6V16L15 13V9Z" fill="#7B3FE4"/>
+                </svg>
+              </div>
+            }
+            label="Panggilan Video"
+          />
+          <ProfileMenuItem
+            icon={
+              <div className="w-10 h-10 rounded-2xl flex items-center justify-center" style={{ background: "#E8F5FF" }}>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <rect x="2" y="9" width="4" height="8" rx="2" fill="#1CB0F6"/>
+                  <rect x="16" y="9" width="4" height="8" rx="2" fill="#1CB0F6"/>
+                  <rect x="1" y="11" width="3" height="4" rx="1.5" fill="#0A95DB" opacity="0.6"/>
+                  <rect x="18" y="11" width="3" height="4" rx="1.5" fill="#0A95DB" opacity="0.6"/>
+                  <rect x="6" y="12" width="10" height="2" rx="1" fill="#1CB0F6"/>
+                </svg>
+              </div>
+            }
+            label="Latihan"
+          />
         </div>
       </div>
 
