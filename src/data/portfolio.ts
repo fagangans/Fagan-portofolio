@@ -150,23 +150,13 @@ export const stats: Stat[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Frontend",
-    icon: "Code2",
+    category: "Matematika",
+    icon: "Calculator",
     skills: [
-      { name: "React / Next.js",  level: 95 },
-      { name: "TypeScript",       level: 92 },
-      { name: "Three.js / WebGL", level: 85 },
-      { name: "Tailwind CSS",     level: 96 },
-    ],
-  },
-  {
-    category: "Backend",
-    icon: "Server",
-    skills: [
-      { name: "Node.js",       level: 88 },
-      { name: "PostgreSQL",    level: 84 },
-      { name: "GraphQL",       level: 80 },
-      { name: "Cloud / DevOps",level: 78 },
+      { name: "Aljabar",          level: 90 },
+      { name: "Geometri",         level: 85 },
+      { name: "Statistika",       level: 80 },
+      { name: "Kalkulus Dasar",   level: 75 },
     ],
   },
   {
