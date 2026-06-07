@@ -45,6 +45,11 @@ function GolemScene() {
       <ellipse cx="320" cy="95" rx="22" ry="28" fill="#388E3C" opacity="0.7"/>
       <ellipse cx="60" cy="90" rx="20" ry="25" fill="#2E7D32" opacity="0.8"/>
       <ellipse cx="300" cy="88" rx="20" ry="24" fill="#2E7D32" opacity="0.8"/>
+      {/* Triangle trees — more illustrated style */}
+      <polygon points="30,105 50,55 70,105" fill="#2E7D32" opacity="0.9"/>
+      <polygon points="15,105 32,65 49,105" fill="#388E3C" opacity="0.8"/>
+      <polygon points="290,105 310,60 330,105" fill="#2E7D32" opacity="0.9"/>
+      <polygon points="310,105 328,68 346,105" fill="#388E3C" opacity="0.8"/>
       {/* Stone Golem body */}
       <rect x="145" y="55" width="70" height="80" rx="8" fill="#757575"/>
       {/* Golem head */}
@@ -158,10 +163,29 @@ export default function MissionsPage() {
           <span className="text-[11px] font-bold text-[#AFAFAF] uppercase tracking-widest">AKAN DATANG</span>
         </div>
         <div
-          className="mx-4 mb-3 bg-white rounded-2xl p-4 opacity-60"
-          style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
+          className="mx-4 mb-3 bg-white rounded-2xl overflow-hidden"
+          style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)", opacity: 0.7 }}
         >
-          <p className="font-bold text-sm text-gray-400">Terungkap dalam 3 hari</p>
+          <div className="flex items-center gap-4 px-4 py-4">
+            {/* Locked chest illustration */}
+            <div className="flex-shrink-0">
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                <rect x="4" y="24" width="44" height="24" rx="4" fill="#D0D0D0"/>
+                <rect x="4" y="16" width="44" height="12" rx="4" fill="#E0E0E0"/>
+                <rect x="4" y="24" width="44" height="5" fill="#B8B8B8"/>
+                <rect x="20" y="27" width="12" height="9" rx="3" fill="#B8B8B8"/>
+                <rect x="23" y="30" width="6" height="4" rx="2" fill="#A0A0A0"/>
+                {/* Lock icon on top */}
+                <rect x="21" y="8" width="10" height="10" rx="2" fill="#C0C0C0"/>
+                <path d="M23 12V10C23 8.9 24.1 8 26 8C27.9 8 29 8.9 29 10V12" stroke="#A0A0A0" strokeWidth="2" strokeLinecap="round"/>
+                <circle cx="26" cy="13" r="1.5" fill="#A0A0A0"/>
+              </svg>
+            </div>
+            <div>
+              <p className="font-black text-[15px] text-gray-400">Terungkap dalam 3 hari</p>
+              <p className="text-xs text-gray-300 mt-0.5">Tantangan baru menunggumu</p>
+            </div>
+          </div>
         </div>
       </div>
 

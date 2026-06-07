@@ -84,7 +84,7 @@ export default function LessonPath() {
           const marginLeft = POSITIONS[i % 8];
           const showChest = i > 0 && i % 8 === 0;
           // Stars appear to the right of completed nodes (not active/locked)
-          const showStars = state === "completed" && i % 4 === 3;
+          const showStars = state === "completed" && i % 3 === 2;
 
           return (
             <div key={i}>
@@ -118,9 +118,9 @@ export default function LessonPath() {
                     style={{ left: marginLeft + 72, top: "50%", transform: "translateY(-50%)" }}
                   >
                     {[0, 1, 2].map(s => (
-                      <svg key={s} width="18" height="18" viewBox="0 0 18 18" fill="none">
-                        <path d="M9 2L10.8 6.8H16L11.8 9.7L13.4 14.5L9 11.8L4.6 14.5L6.2 9.7L2 6.8H7.2L9 2Z"
-                          fill={s === 0 ? "#FFD700" : "#E0E0E0"} stroke="#E0C000" strokeWidth="0.5"/>
+                      <svg key={s} width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L12 7.5H18L13.5 11L15.5 16.5L10 13.5L4.5 16.5L6.5 11L2 7.5H8L10 2Z"
+                          fill="none" stroke="#CCCCCC" strokeWidth="1.5" strokeLinejoin="round"/>
                       </svg>
                     ))}
                   </div>
@@ -131,12 +131,10 @@ export default function LessonPath() {
         })}
 
         {/* NPC CATUR at bottom */}
-        <div className="flex items-end gap-3 px-6 mt-6 mb-4">
-          <div className="flex flex-col items-center">
-            <ChessRookSVG />
-          </div>
+        <div className="flex flex-col items-start px-6 mt-6 mb-4 gap-2">
+          <ChessRookSVG />
           <div
-            className="rounded-full px-5 py-2 mb-3"
+            className="rounded-full px-5 py-2"
             style={{ background: "#58CC02", boxShadow: "0 3px 0 #45A800" }}
           >
             <span className="text-white font-black text-sm">CATUR</span>

@@ -8,7 +8,7 @@ interface XPBannerProps {
 export default function XPBanner({ section, unit, title }: XPBannerProps) {
   return (
     <div
-      className="mx-3 my-3 rounded-2xl px-4 py-3.5 flex items-center justify-between"
+      className="px-4 py-3.5 flex items-center justify-between"
       style={{ background: "#FF4FB3", boxShadow: "0 4px 0 #CC0093" }}
     >
       <div>
