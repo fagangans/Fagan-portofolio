@@ -76,6 +76,13 @@ html.lenis body {
   .text-gradient {
     @apply bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent;
   }
+  .text-hero-name {
+    background: linear-gradient(175deg, #ffffff 0%, #ede8de 45%, #d4c8b4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
   .text-gold-gradient {
     background: linear-gradient(135deg, #e0c77a 0%, #c9a84c 50%, #9c8033 100%);
     -webkit-background-clip: text;

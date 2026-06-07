@@ -1,8 +1,8 @@
 "use client";
 
 import { Star } from "lucide-react";
-import { testimonials } from "@/lib/data";
-import type { Testimonial } from "@/types";
+import { testimonials } from "@/data/portfolio";
+import type { Testimonial } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
 

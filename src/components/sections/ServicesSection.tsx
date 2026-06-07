@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import { services } from "@/lib/data";
+import { services } from "@/data/portfolio";
 import { getIcon } from "@/lib/icons";
 import SectionHeading from "@/components/ui/SectionHeading";
 

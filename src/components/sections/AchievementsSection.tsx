@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Award, BadgeCheck, Trophy, Flag } from "lucide-react";
-import { achievements } from "@/lib/data";
-import type { Achievement } from "@/types";
+import { achievements } from "@/data/portfolio";
+import type { Achievement } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const typeIcon = {
