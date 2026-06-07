@@ -140,10 +140,10 @@ export const socials: SocialLink[] = [
 // ─── Hero Stats ───────────────────────────────────────────────
 
 export const stats: Stat[] = [
-  { value: "5+",  label: "Tahun"        },
-  { value: "50+", label: "Proyek"       },
-  { value: "30+", label: "Klien"        },
-  { value: "10+", label: "Penghargaan"  },
+  { value: "1+", label: "Tahun"   },
+  { value: "1",  label: "Proyek"  },
+  { value: "1",  label: "Klien"   },
+  { value: "1",  label: "Award"   },
 ];
 
 // ─── Skills ───────────────────────────────────────────────────
@@ -397,46 +397,26 @@ export const testimonials: Testimonial[] = [
 export const achievements: Achievement[] = [
   {
     id: 1,
-    year: "2024",
-    title: "Awwwards Site of the Day",
+    year: "2017 – 2023",
+    title: "SD Nurul Ilmi",
     description:
-      "Recognized for an immersive 3D portfolio experience pushing the boundaries of the web.",
-    type: "Award",
-  },
-  {
-    id: 2,
-    year: "2023",
-    title: "Google UX Design Certificate",
-    description:
-      "Completed advanced certification in user experience research and interface design.",
-    type: "Certification",
-  },
-  {
-    id: 3,
-    year: "2023",
-    title: "Global Hackathon Winner",
-    description: "First place among 1,200 teams for an AI-driven accessibility tool.",
-    type: "Competition",
-  },
-  {
-    id: 4,
-    year: "2022",
-    title: "50,000 Users Milestone",
-    description: "Scaled a self-built SaaS product to fifty thousand active users worldwide.",
+      "Membangun fondasi akademik, disiplin belajar, dan ketertarikan awal terhadap teknologi serta kreativitas.",
     type: "Milestone",
   },
   {
-    id: 5,
-    year: "2021",
-    title: "CSS Design Awards Winner",
-    description: "Awarded for excellence in innovation, UI design, and creative use of code.",
-    type: "Award",
+    id: 2,
+    year: "2023 – 2026",
+    title: "SMP Nurul Ilmi",
+    description:
+      "Mengembangkan kemampuan berpikir kritis, eksplorasi teknologi digital, serta aktif dalam berbagai proyek pembelajaran.",
+    type: "Milestone",
   },
   {
-    id: 6,
-    year: "2020",
-    title: "Founded Altair Studio",
-    description: "Launched an independent creative studio serving clients across three continents.",
+    id: 3,
+    year: "2026 – 2029",
+    title: "SMA Unggul Garuda Baru Belitung Timur",
+    description:
+      "Fokus pada pengembangan diri di bidang teknologi, desain, inovasi, dan kepemimpinan untuk mempersiapkan karier masa depan.",
     type: "Milestone",
   },
 ];

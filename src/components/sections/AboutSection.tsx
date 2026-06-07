@@ -8,14 +8,12 @@ import { name, tagline, biography, profilePhoto } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const timeline = [
-  { year: "2020", title: "Founded Altair Studio", desc: "Launched an independent creative practice." },
-  { year: "2021", title: "First Awards", desc: "Recognized by CSS Design Awards." },
-  { year: "2022", title: "Scaled to 50k Users", desc: "Grew a self-built SaaS product globally." },
-  { year: "2023", title: "AI Specialization", desc: "Shipped production LLM-powered products." },
-  { year: "2024", title: "Awwwards Recognition", desc: "Site of the Day for immersive 3D work." },
+  { year: "2017 – 2023", title: "SD Nurul Ilmi", desc: "Membangun fondasi akademik, disiplin belajar, dan ketertarikan awal terhadap teknologi serta kreativitas." },
+  { year: "2023 – 2026", title: "SMP Nurul Ilmi", desc: "Mengembangkan kemampuan berpikir kritis, eksplorasi teknologi digital, serta aktif dalam berbagai proyek pembelajaran." },
+  { year: "2026 – 2029", title: "SMA Unggul Garuda Baru Belitung Timur", desc: "Fokus pada pengembangan diri di bidang teknologi, desain, inovasi, dan kepemimpinan untuk mempersiapkan karier masa depan." },
 ];
 
-function Counter({ value, label }: { value: number; label: string }) {
+function Counter({ value, label, suffix = "" }: { value: number; label: string; suffix?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
   return (
@@ -26,7 +24,7 @@ function Counter({ value, label }: { value: number; label: string }) {
         transition={{ duration: 0.6 }}
         className="font-serif text-4xl md:text-5xl text-gold-gradient"
       >
-        {value}+
+        {value}{suffix}
       </motion.span>
       <span className="mt-1 text-xs uppercase tracking-[0.2em] text-silver">
         {label}
@@ -96,10 +94,11 @@ export default function AboutSection() {
             </p>
           ))}
 
-          <div className="mt-10 grid grid-cols-3 gap-6">
-            <Counter value={5} label="Years" />
-            <Counter value={50} label="Projects" />
-            <Counter value={30} label="Clients" />
+          <div className="mt-10 grid grid-cols-4 gap-6">
+            <Counter value={1} label="Tahun" suffix="+" />
+            <Counter value={1} label="Proyek" />
+            <Counter value={1} label="Klien" />
+            <Counter value={1} label="Award" />
           </div>
 
           <div className="mt-12 space-y-6">
