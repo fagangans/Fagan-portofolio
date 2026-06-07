@@ -92,26 +92,6 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Frontend",
-    icon: "Code2",
-    skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 92 },
-      { name: "Three.js / WebGL", level: 85 },
-      { name: "Tailwind CSS", level: 96 },
-    ],
-  },
-  {
-    category: "Backend",
-    icon: "Server",
-    skills: [
-      { name: "Node.js", level: 88 },
-      { name: "PostgreSQL", level: 84 },
-      { name: "GraphQL", level: 80 },
-      { name: "Cloud / DevOps", level: 78 },
-    ],
-  },
-  {
     category: "UI/UX",
     icon: "Palette",
     skills: [
