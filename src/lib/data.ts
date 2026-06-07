@@ -3,7 +3,6 @@ import type {
   SkillCategory,
   Testimonial,
   Achievement,
-  BlogPost,
   Service,
   Stat,
 } from "@/types";
@@ -265,39 +264,6 @@ export const achievements: Achievement[] = [
     description:
       "Fokus pada pengembangan diri di bidang teknologi, desain, inovasi, dan kepemimpinan untuk mempersiapkan karier masa depan.",
     type: "Milestone",
-  },
-];
-
-export const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "The Art of Cinematic Web Experiences",
-    excerpt:
-      "How to blend 3D, motion, and narrative to craft websites that feel like films.",
-    category: "Design",
-    readTime: "8 min read",
-    date: "May 2026",
-    gradient: "from-amber-500/40 to-orange-700/40",
-  },
-  {
-    id: 2,
-    title: "Building Production AI Products",
-    excerpt:
-      "Lessons from shipping LLM-powered apps that real users trust every day.",
-    category: "AI",
-    readTime: "12 min read",
-    date: "Apr 2026",
-    gradient: "from-emerald-500/40 to-teal-700/40",
-  },
-  {
-    id: 3,
-    title: "Designing for Luxury Brands",
-    excerpt:
-      "The principles of restraint, materiality, and craft that define premium digital design.",
-    category: "Branding",
-    readTime: "6 min read",
-    date: "Mar 2026",
-    gradient: "from-rose-500/40 to-pink-700/40",
   },
 ];
 

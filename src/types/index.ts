@@ -8,7 +8,6 @@ export type {
   SkillCategory,
   Testimonial,
   Achievement,
-  BlogPost,
   Service,
   Stat,
   SocialLink,
