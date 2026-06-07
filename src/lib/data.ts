@@ -3,7 +3,6 @@ import type {
   SkillCategory,
   Testimonial,
   Achievement,
-  BlogPost,
   Service,
   Stat,
 } from "@/types";
@@ -91,6 +90,16 @@ export const projects: Project[] = [
 ];
 
 export const skillCategories: SkillCategory[] = [
+  {
+    category: "Matematika",
+    icon: "Calculator",
+    skills: [
+      { name: "Aljabar",        level: 90 },
+      { name: "Geometri",       level: 85 },
+      { name: "Statistika",     level: 80 },
+      { name: "Kalkulus Dasar", level: 75 },
+    ],
+  },
   {
     category: "UI/UX",
     icon: "Palette",
@@ -258,44 +267,10 @@ export const achievements: Achievement[] = [
   },
 ];
 
-export const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "The Art of Cinematic Web Experiences",
-    excerpt:
-      "How to blend 3D, motion, and narrative to craft websites that feel like films.",
-    category: "Design",
-    readTime: "8 min read",
-    date: "May 2026",
-    gradient: "from-amber-500/40 to-orange-700/40",
-  },
-  {
-    id: 2,
-    title: "Building Production AI Products",
-    excerpt:
-      "Lessons from shipping LLM-powered apps that real users trust every day.",
-    category: "AI",
-    readTime: "12 min read",
-    date: "Apr 2026",
-    gradient: "from-emerald-500/40 to-teal-700/40",
-  },
-  {
-    id: 3,
-    title: "Designing for Luxury Brands",
-    excerpt:
-      "The principles of restraint, materiality, and craft that define premium digital design.",
-    category: "Branding",
-    readTime: "6 min read",
-    date: "Mar 2026",
-    gradient: "from-rose-500/40 to-pink-700/40",
-  },
-];
-
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Services", href: "#services" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 

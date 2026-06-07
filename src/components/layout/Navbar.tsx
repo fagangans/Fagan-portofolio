@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { navLinks } from "@/lib/data";
+import { navLinks } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {

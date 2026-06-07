@@ -1,9 +1,28 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, Component, type ReactNode } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import * as THREE from "three";
+
+class SceneErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return <div className="absolute inset-0 bg-radial-glow" />;
+    }
+    return this.props.children;
+  }
+}
 
 function FloatingShape({
   position,
@@ -77,7 +96,6 @@ function Particles() {
         <bufferAttribute
           attach="attributes-position"
           args={[positions, 3]}
-          count={count}
         />
       </bufferGeometry>
       <pointsMaterial
@@ -101,7 +119,7 @@ function Rig() {
   return null;
 }
 
-export default function HeroScene() {
+function Scene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 6], fov: 50 }}
@@ -121,5 +139,13 @@ export default function HeroScene() {
 
       <Rig />
     </Canvas>
+  );
+}
+
+export default function HeroScene() {
+  return (
+    <SceneErrorBoundary>
+      <Scene />
+    </SceneErrorBoundary>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { socials, navLinks } from "@/lib/data";
+import { socials, navLinks, name, shortBio } from "@/data/portfolio";
 import { getIcon } from "@/lib/icons";
 
 export default function Footer() {
@@ -11,10 +11,7 @@ export default function Footer() {
           <span className="font-serif text-3xl font-bold tracking-widest text-gold-gradient">
             FFA
           </span>
-          <p className="mt-3 max-w-sm text-sm text-silver">
-            Membantu bisnis dan komunitas tampil profesional di dunia digital
-            dengan desain yang elegan dan teknologi modern.
-          </p>
+          <p className="mt-3 max-w-sm text-sm text-silver">{shortBio}</p>
         </div>
 
         <ul className="flex flex-wrap justify-center gap-6">
@@ -49,8 +46,7 @@ export default function Footer() {
         <div className="h-px w-full max-w-xs bg-white/10" />
 
         <p className="text-xs text-silver">
-          &copy; {new Date().getFullYear()} Fagan Fabian Altair. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} {name}. All rights reserved.
         </p>
       </div>
     </footer>

@@ -6,7 +6,6 @@ import SkillsSection from "@/components/sections/SkillsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import AchievementsSection from "@/components/sections/AchievementsSection";
-import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Marquee from "@/components/ui/Marquee";
 
@@ -22,7 +21,6 @@ export default function Home() {
         <ServicesSection />
         <TestimonialsSection />
         <AchievementsSection />
-        <BlogSection />
         <ContactSection />
       </main>
       <Footer />
