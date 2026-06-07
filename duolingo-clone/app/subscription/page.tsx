@@ -24,8 +24,8 @@ function DuoMascot() {
       <ellipse cx="50" cy="36" rx="2.5" ry="3" fill="white"/>
       <ellipse cx="78" cy="36" rx="2.5" ry="3" fill="white"/>
       {/* Brow lines */}
-      <path d="M37 28 Q46 22 54 27" stroke="#45A800" strokeWidth="3" strokeLinecap="round" fill="none"/>
-      <path d="M66 27 Q74 22 83 28" stroke="#45A800" strokeWidth="3" strokeLinecap="round" fill="none"/>
+      <path d="M37 30 Q46 26 54 29" stroke="#45A800" strokeWidth="3" strokeLinecap="round" fill="none"/>
+      <path d="M66 29 Q74 26 83 30" stroke="#45A800" strokeWidth="3" strokeLinecap="round" fill="none"/>
       {/* Beak */}
       <path d="M54 50 L60 57 L66 50" fill="#FF9600" stroke="#E07800" strokeWidth="1"/>
       {/* Chest spots / sparkles */}
@@ -61,22 +61,36 @@ function BatteryInfinity() {
 // Family illustration for Keluarga Super
 function FamilyIllustration() {
   return (
-    <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
-      {/* Parent figure */}
-      <ellipse cx="28" cy="20" rx="10" ry="11" fill="#1CB0F6"/>
-      <rect x="18" y="30" width="20" height="22" rx="5" fill="#1CB0F6"/>
-      {/* Child figure */}
-      <ellipse cx="50" cy="26" rx="8" ry="9" fill="#FF9600"/>
-      <rect x="42" y="34" width="16" height="18" rx="4" fill="#FF9600"/>
-      {/* Parent eye */}
-      <ellipse cx="24" cy="18" rx="2.5" ry="3" fill="white"/>
-      <ellipse cx="32" cy="18" rx="2.5" ry="3" fill="white"/>
-      {/* Child eye */}
-      <ellipse cx="46" cy="25" rx="2" ry="2.5" fill="white"/>
-      <ellipse cx="54" cy="25" rx="2" ry="2.5" fill="white"/>
-      {/* Stars */}
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+      {/* Parent figure — taller, blue */}
+      <ellipse cx="26" cy="18" rx="10" ry="11" fill="#1CB0F6"/>
+      <rect x="16" y="28" width="20" height="24" rx="5" fill="#1CB0F6"/>
+      {/* Parent arms out */}
+      <rect x="4" y="30" width="13" height="6" rx="3" fill="#1CB0F6" transform="rotate(-20 4 30)"/>
+      <rect x="35" y="30" width="13" height="6" rx="3" fill="#1CB0F6" transform="rotate(20 48 30)"/>
+      {/* Child figure — smaller, orange, jumping */}
+      <ellipse cx="52" cy="24" rx="8" ry="9" fill="#FF9600"/>
+      <rect x="44" y="32" width="16" height="18" rx="4" fill="#FF9600"/>
+      {/* Child arms raised */}
+      <rect x="34" y="22" width="11" height="5" rx="2.5" fill="#FF9600" transform="rotate(-40 34 22)"/>
+      <rect x="55" y="22" width="11" height="5" rx="2.5" fill="#FF9600" transform="rotate(40 66 22)"/>
+      {/* Parent eyes */}
+      <ellipse cx="22" cy="16" rx="2.5" ry="3" fill="white"/>
+      <ellipse cx="30" cy="16" rx="2.5" ry="3" fill="white"/>
+      <ellipse cx="23" cy="17" rx="1.5" ry="2" fill="#1A1A2E"/>
+      <ellipse cx="31" cy="17" rx="1.5" ry="2" fill="#1A1A2E"/>
+      {/* Child eyes */}
+      <ellipse cx="48" cy="23" rx="2" ry="2.5" fill="white"/>
+      <ellipse cx="56" cy="23" rx="2" ry="2.5" fill="white"/>
+      <ellipse cx="49" cy="24" rx="1.2" ry="1.5" fill="#1A1A2E"/>
+      <ellipse cx="57" cy="24" rx="1.2" ry="1.5" fill="#1A1A2E"/>
+      {/* Smiles */}
+      <path d="M22 22 Q26 25 30 22" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      <path d="M48 28 Q52 31 56 28" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      {/* Stars/sparkles */}
       <path d="M8 10 L9 7 L10 10 L13 11 L10 12 L9 15 L8 12 L5 11Z" fill="#FFD700"/>
-      <path d="M56 8 L57 5 L58 8 L61 9 L58 10 L57 13 L56 10 L53 9Z" fill="#FF4FB3"/>
+      <path d="M58 6 L59 3 L60 6 L63 7 L60 8 L59 11 L58 8 L55 7Z" fill="#FF4FB3"/>
+      <path d="M66 14 L67 12 L68 14 L70 15 L68 16 L67 18 L66 16 L64 15Z" fill="#58CC02"/>
     </svg>
   );
 }
