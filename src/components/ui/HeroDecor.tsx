@@ -284,161 +284,186 @@ export default function HeroDecor() {
         </div>
       </div>
 
-      {/* ── Premium Medal / Trophy — right side ─────────────── */}
-      <div className="hero-medal-wrap" style={{ opacity: 0.88 }}>
+      {/* ── Premium Tech Achievement Badge — right side ────── */}
+      <div className="hero-medal-wrap" style={{ opacity: 0.90 }}>
         <div className="hero-medal-aura" />
         <svg
-          width="124" height="148"
-          viewBox="0 0 124 148"
+          width="130" height="130"
+          viewBox="0 0 130 130"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ position: "relative", filter: "drop-shadow(0 0 18px rgba(212,175,100,0.45)) drop-shadow(0 4px 16px rgba(0,0,0,0.6))" }}
+          style={{
+            position: "relative",
+            filter: "drop-shadow(0 0 22px rgba(212,175,100,0.5)) drop-shadow(0 6px 20px rgba(0,0,0,0.7))",
+          }}
         >
           <defs>
-            {/* Main gold gradient — radial for depth */}
-            <radialGradient id="medalGold" cx="38%" cy="32%" r="62%">
-              <stop offset="0%"   stopColor="#FFF5C0"/>
-              <stop offset="25%"  stopColor="#E8C96A"/>
-              <stop offset="55%"  stopColor="#C49A28"/>
-              <stop offset="80%"  stopColor="#8B6010"/>
-              <stop offset="100%" stopColor="#5C3D08"/>
+            {/* Deep metallic gold — light from top-left */}
+            <radialGradient id="bGold" cx="36%" cy="30%" r="65%">
+              <stop offset="0%"   stopColor="#FFF8D0"/>
+              <stop offset="18%"  stopColor="#EDD068"/>
+              <stop offset="45%"  stopColor="#C8960A"/>
+              <stop offset="75%"  stopColor="#8B6010"/>
+              <stop offset="100%" stopColor="#3E2600"/>
             </radialGradient>
-            {/* Ribbon gradient */}
-            <linearGradient id="ribGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stopColor="#E8C96A"/>
-              <stop offset="50%"  stopColor="#B8880A"/>
-              <stop offset="100%" stopColor="#8B6010"/>
-            </linearGradient>
-            {/* Glass highlight on medal face */}
-            <radialGradient id="medalGlass" cx="30%" cy="28%" r="55%">
-              <stop offset="0%"  stopColor="rgba(255,255,255,0.28)"/>
-              <stop offset="60%" stopColor="rgba(255,255,255,0.04)"/>
+            {/* Dark face fill */}
+            <radialGradient id="bFace" cx="38%" cy="34%" r="60%">
+              <stop offset="0%"   stopColor="#2A2010"/>
+              <stop offset="40%"  stopColor="#160E00"/>
+              <stop offset="100%" stopColor="#060400"/>
+            </radialGradient>
+            {/* Glass specular on face */}
+            <radialGradient id="bGlass" cx="32%" cy="28%" r="52%">
+              <stop offset="0%"   stopColor="rgba(255,255,255,0.22)"/>
+              <stop offset="55%"  stopColor="rgba(255,255,255,0.04)"/>
               <stop offset="100%" stopColor="rgba(255,255,255,0)"/>
             </radialGradient>
-            {/* Inner shadow ring */}
-            <radialGradient id="innerShadow" cx="50%" cy="50%" r="50%">
-              <stop offset="65%"  stopColor="rgba(0,0,0,0)"/>
-              <stop offset="100%" stopColor="rgba(0,0,0,0.45)"/>
+            {/* Edge shadow (gives rim depth) */}
+            <radialGradient id="bRimShadow" cx="50%" cy="50%" r="50%">
+              <stop offset="60%"  stopColor="rgba(0,0,0,0)"/>
+              <stop offset="100%" stopColor="rgba(0,0,0,0.55)"/>
             </radialGradient>
-            {/* Star gradient */}
-            <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%"  stopColor="#FFF5C0"/>
-              <stop offset="50%" stopColor="#E8C96A"/>
-              <stop offset="100%" stopColor="#9A7018"/>
+            {/* Star */}
+            <linearGradient id="bStar" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%"   stopColor="#FFFADC"/>
+              <stop offset="40%"  stopColor="#EDD068"/>
+              <stop offset="100%" stopColor="#8B6010"/>
             </linearGradient>
-            {/* Ribbon shadow */}
-            <linearGradient id="ribShadow" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stopColor="rgba(0,0,0,0.3)"/>
-              <stop offset="50%"  stopColor="rgba(0,0,0,0)"/>
-              <stop offset="100%" stopColor="rgba(0,0,0,0.3)"/>
+            {/* Circuit line color */}
+            <linearGradient id="bCircuit" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stopColor="rgba(212,175,100,0)"/>
+              <stop offset="50%"  stopColor="rgba(212,175,100,0.55)"/>
+              <stop offset="100%" stopColor="rgba(212,175,100,0)"/>
             </linearGradient>
           </defs>
 
-          {/* ── Ribbon / hanging strap ── */}
-          {/* Left ribbon piece */}
-          <polygon
-            points="50,6 62,6 62,54 44,54"
-            fill="url(#ribGrad)"
-            opacity="0.92"
-          />
-          {/* Right ribbon piece */}
-          <polygon
-            points="62,6 74,6 80,54 62,54"
-            fill="url(#ribGrad)"
-            opacity="0.85"
-          />
-          {/* Ribbon shadow overlay */}
-          <polygon points="50,6 74,6 80,54 44,54" fill="url(#ribShadow)" />
-          {/* Ribbon center fold line */}
-          <line x1="62" y1="6" x2="62" y2="54" stroke="rgba(255,245,180,0.18)" strokeWidth="1"/>
-          {/* Ribbon top bar */}
-          <rect x="44" y="2" width="36" height="8" rx="2" fill="url(#ribGrad)" opacity="0.95"/>
-          <rect x="44" y="2" width="36" height="8" rx="2" fill="url(#ribShadow)"/>
-          {/* Ribbon top bar highlight */}
-          <rect x="46" y="3" width="32" height="3" rx="1" fill="rgba(255,250,200,0.22)"/>
-
-          {/* ── Medal body outer ring ── */}
-          {/* Outer bezel / thick ring */}
-          <circle cx="62" cy="98" r="46" fill="url(#medalGold)" />
-          {/* Outer edge shadow */}
-          <circle cx="62" cy="98" r="46" fill="url(#innerShadow)" />
-          {/* Outer ring border highlight */}
-          <circle cx="62" cy="98" r="46" fill="none"
-            stroke="rgba(255,245,190,0.35)" strokeWidth="1.5"
-          />
-          {/* Outer bezel inner edge */}
-          <circle cx="62" cy="98" r="38" fill="none"
-            stroke="rgba(0,0,0,0.4)" strokeWidth="2"
+          {/* ── Ring 1: outermost thin border ── */}
+          <circle cx="65" cy="65" r="62"
+            fill="none"
+            stroke="rgba(212,175,100,0.25)"
+            strokeWidth="1"
           />
 
-          {/* ── Medal face inner ── */}
-          <circle cx="62" cy="98" r="36" fill="url(#medalGold)" />
-          <circle cx="62" cy="98" r="36" fill="url(#innerShadow)" opacity="0.6" />
+          {/* ── Ring 2: thick metallic bezel ── */}
+          <circle cx="65" cy="65" r="58" fill="url(#bGold)" />
+          <circle cx="65" cy="65" r="58" fill="url(#bRimShadow)" />
+          {/* Bezel highlight arc */}
+          <circle cx="65" cy="65" r="58"
+            fill="none"
+            stroke="rgba(255,250,200,0.4)"
+            strokeWidth="1.2"
+            strokeDasharray="80 285"
+            strokeDashoffset="-20"
+            strokeLinecap="round"
+          />
 
-          {/* ── Laurel / wreath pattern (simplified arcs) ── */}
-          {[...Array(10)].map((_, i) => {
-            const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
-            const r1 = 28, r2 = 34;
-            const x1 = 62 + r1 * Math.cos(angle);
-            const y1 = 98 + r1 * Math.sin(angle);
-            const x2 = 62 + r2 * Math.cos(angle + 0.28);
-            const y2 = 98 + r2 * Math.sin(angle + 0.28);
+          {/* ── Ring 3: separator groove ── */}
+          <circle cx="65" cy="65" r="50"
+            fill="none"
+            stroke="rgba(0,0,0,0.55)"
+            strokeWidth="2.5"
+          />
+          <circle cx="65" cy="65" r="50"
+            fill="none"
+            stroke="rgba(255,235,140,0.12)"
+            strokeWidth="0.8"
+          />
+
+          {/* ── Ring 4: inner ring (thin gold) ── */}
+          <circle cx="65" cy="65" r="47"
+            fill="none"
+            stroke="rgba(212,175,100,0.35)"
+            strokeWidth="1"
+          />
+
+          {/* ── Badge face (dark glass) ── */}
+          <circle cx="65" cy="65" r="45" fill="url(#bFace)" />
+          <circle cx="65" cy="65" r="45" fill="url(#bRimShadow)" opacity="0.5" />
+
+          {/* ── Circuit / tech lines on face ── */}
+          {/* Horizontal lines left */}
+          <line x1="22" y1="58" x2="44" y2="58" stroke="url(#bCircuit)" strokeWidth="0.8"/>
+          <line x1="22" y1="65" x2="38" y2="65" stroke="url(#bCircuit)" strokeWidth="0.8"/>
+          <line x1="22" y1="72" x2="44" y2="72" stroke="url(#bCircuit)" strokeWidth="0.8"/>
+          {/* Connector dots left */}
+          <circle cx="44" cy="58" r="1.5" fill="rgba(212,175,100,0.5)"/>
+          <circle cx="38" cy="65" r="1.5" fill="rgba(212,175,100,0.5)"/>
+          <circle cx="44" cy="72" r="1.5" fill="rgba(212,175,100,0.5)"/>
+          {/* Horizontal lines right */}
+          <line x1="86" y1="58" x2="108" y2="58" stroke="url(#bCircuit)" strokeWidth="0.8" transform="scale(-1,1) translate(-130,0)"/>
+          <line x1="92" y1="65" x2="108" y2="65" stroke="url(#bCircuit)" strokeWidth="0.8" transform="scale(-1,1) translate(-130,0)"/>
+          <line x1="86" y1="72" x2="108" y2="72" stroke="url(#bCircuit)" strokeWidth="0.8" transform="scale(-1,1) translate(-130,0)"/>
+          {/* Connector dots right */}
+          <circle cx="86" cy="58" r="1.5" fill="rgba(212,175,100,0.5)"/>
+          <circle cx="92" cy="65" r="1.5" fill="rgba(212,175,100,0.5)"/>
+          <circle cx="86" cy="72" r="1.5" fill="rgba(212,175,100,0.5)"/>
+          {/* Small vertical ticks around mid ring */}
+          {[...Array(16)].map((_, i) => {
+            const ang = (i / 16) * Math.PI * 2;
+            const r1 = 47, r2 = 43;
             return (
-              <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-                stroke="rgba(255,235,140,0.22)" strokeWidth="1.2" strokeLinecap="round"/>
+              <line key={i}
+                x1={65 + r1 * Math.cos(ang)} y1={65 + r1 * Math.sin(ang)}
+                x2={65 + r2 * Math.cos(ang)} y2={65 + r2 * Math.sin(ang)}
+                stroke="rgba(212,175,100,0.22)" strokeWidth="0.8"
+              />
             );
           })}
 
-          {/* ── 5-pointed star center ── */}
+          {/* ── Center star ── */}
           <polygon
             points={(() => {
               const pts = [];
               for (let i = 0; i < 10; i++) {
                 const ang = (i * 36 - 90) * Math.PI / 180;
-                const r = i % 2 === 0 ? 18 : 8;
-                pts.push(`${62 + r * Math.cos(ang)},${98 + r * Math.sin(ang)}`);
+                const r  = i % 2 === 0 ? 20 : 9;
+                pts.push(`${65 + r * Math.cos(ang)},${65 + r * Math.sin(ang)}`);
               }
               return pts.join(" ");
             })()}
-            fill="url(#starGrad)"
+            fill="url(#bStar)"
           />
-          {/* Star inner shadow */}
+          {/* Star inner depth shadow */}
           <polygon
             points={(() => {
               const pts = [];
               for (let i = 0; i < 10; i++) {
                 const ang = (i * 36 - 90) * Math.PI / 180;
-                const r = i % 2 === 0 ? 18 : 8;
-                pts.push(`${62 + r * Math.cos(ang)},${98 + r * Math.sin(ang)}`);
+                const r  = i % 2 === 0 ? 20 : 9;
+                pts.push(`${65 + r * Math.cos(ang)},${65 + r * Math.sin(ang)}`);
               }
               return pts.join(" ");
             })()}
-            fill="url(#innerShadow)"
-            opacity="0.5"
+            fill="url(#bRimShadow)"
+            opacity="0.45"
           />
-          {/* Star highlight */}
+          {/* Star specular */}
           <polygon
             points={(() => {
               const pts = [];
               for (let i = 0; i < 10; i++) {
                 const ang = (i * 36 - 90) * Math.PI / 180;
-                const r = i % 2 === 0 ? 18 : 8;
-                pts.push(`${62 + r * Math.cos(ang)},${98 + r * Math.sin(ang)}`);
+                const r  = i % 2 === 0 ? 20 : 9;
+                pts.push(`${65 + r * Math.cos(ang)},${65 + r * Math.sin(ang)}`);
               }
               return pts.join(" ");
             })()}
             fill="none"
-            stroke="rgba(255,250,200,0.3)"
-            strokeWidth="0.8"
+            stroke="rgba(255,252,210,0.35)"
+            strokeWidth="0.7"
           />
 
-          {/* ── Glass highlight overlay on medal face ── */}
-          <circle cx="62" cy="98" r="36" fill="url(#medalGlass)" />
+          {/* ── Glass specular on face ── */}
+          <circle cx="65" cy="65" r="45" fill="url(#bGlass)" />
 
-          {/* ── Outer rim final highlight ── */}
-          <circle cx="59" cy="82" r="32" fill="none"
-            stroke="rgba(255,248,200,0.12)" strokeWidth="8"
-            strokeDasharray="30 120" strokeLinecap="round"
+          {/* ── Outermost glow arc (top-left, premium sheen) ── */}
+          <circle cx="65" cy="65" r="58"
+            fill="none"
+            stroke="rgba(255,252,200,0.18)"
+            strokeWidth="6"
+            strokeDasharray="55 310"
+            strokeDashoffset="-10"
+            strokeLinecap="round"
           />
         </svg>
       </div>
