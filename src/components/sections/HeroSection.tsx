@@ -5,6 +5,7 @@ import { Component, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { stats, name, tagline, shortBio } from "@/data/portfolio";
+import HeroDecor from "@/components/ui/HeroDecor";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
@@ -57,6 +58,11 @@ export default function HeroSection() {
 
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black" />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-radial-glow" />
+
+      {/* Decorative 3D side elements — z-[2] keeps them behind main content */}
+      <div className="pointer-events-none absolute inset-0 z-[2] overflow-hidden">
+        <HeroDecor />
+      </div>
 
       <div className="relative z-10 flex flex-col items-center text-center">
         <motion.span
