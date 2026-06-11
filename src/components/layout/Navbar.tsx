@@ -35,7 +35,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-12">
         <a
-          href="/"
+          href="#hero"
           className="font-serif text-2xl font-bold tracking-widest text-gold-gradient"
         >
           FFA
