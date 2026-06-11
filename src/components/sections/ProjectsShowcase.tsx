@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
-import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
 import { portfolioProjects, type PortfolioProject } from "@/lib/projectsData";
@@ -179,13 +178,13 @@ export default function ProjectsShowcase() {
           transition={{ duration: 0.5, delay: 2.6 }}
           className="mb-16"
         >
-          <Link
+          <a
             href="/"
             className="inline-flex items-center gap-2 text-sm text-silver transition-colors hover:text-gold"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Home
-          </Link>
+          </a>
         </motion.div>
 
         {/* Heading */}

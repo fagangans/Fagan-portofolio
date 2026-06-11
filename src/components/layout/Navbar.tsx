@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -35,22 +34,22 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-12">
-        <Link
+        <a
           href="/"
           className="font-serif text-2xl font-bold tracking-widest text-gold-gradient"
         >
           FFA
-        </Link>
+        </a>
 
         <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link
+              <a
                 href={link.href}
                 className="text-sm text-silver transition-colors hover:text-gold"
               >
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
@@ -90,13 +89,13 @@ export default function Navbar() {
           >
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link
+                <a
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="block px-8 py-4 text-sm text-silver transition-colors hover:text-gold"
                 >
                   {link.label}
-                </Link>
+                </a>
               </li>
             ))}
           </motion.ul>
