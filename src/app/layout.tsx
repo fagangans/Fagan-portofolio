@@ -60,10 +60,11 @@ export default function RootLayout({
           enableSystem={false}
         >
           <MotionProvider>
-            <LoadingScreen />
+            {/* ISOLATION ROUND 1: disabled to find ReactCurrentBatchConfig source */}
+            {/* <LoadingScreen /> */}
             <SmoothScroll />
-            <CustomCursor />
-            <ScrollProgress />
+            {/* <CustomCursor /> */}
+            {/* <ScrollProgress /> */}
             {children}
           </MotionProvider>
         </ThemeProvider>
