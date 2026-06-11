@@ -29,20 +29,6 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: 2,
-    title: "POS System",
-    category: "Business Application",
-    description:
-      "Smart point-of-sale system built to simplify inventory, sales reporting, and daily business operations.",
-    longDescription:
-      "A clean and efficient POS system designed for small to medium businesses. Features real-time inventory tracking, daily sales summaries, and an intuitive interface that speeds up checkout and reduces human error.",
-    image: "/images/projects/pos-system.png",
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
-    demoUrl: "#",
-    githubUrl: "#",
-    gradient: "from-emerald-500/20 via-teal-600/20 to-cyan-700/20",
-  },
-  {
-    id: 3,
     title: "Nusantara Dining",
     category: "Landing Page",
     description:
