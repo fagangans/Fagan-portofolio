@@ -1,11 +1,16 @@
 "use client";
 
-// ISOLATION: stripped to bare render test
-// Original page.tsx preserved in git history
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 export default function Home() {
   return (
-    <main style={{ color: "white", padding: "2rem" }}>
-      RENDER TEST
-    </main>
+    <>
+      <Navbar />
+      <main style={{ color: "white", padding: "8rem 2rem 2rem" }}>
+        RENDER TEST
+      </main>
+      <Footer />
+    </>
   );
 }
