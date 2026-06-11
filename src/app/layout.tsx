@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
-import MotionProvider from "@/components/ui/MotionProvider";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import LoadingScreen from "@/components/ui/LoadingScreen";
@@ -59,14 +58,11 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
-          <MotionProvider>
-            {/* ISOLATION ROUND 1: disabled to find ReactCurrentBatchConfig source */}
-            {/* <LoadingScreen /> */}
-            <SmoothScroll />
-            {/* <CustomCursor /> */}
-            {/* <ScrollProgress /> */}
-            {children}
-          </MotionProvider>
+          <LoadingScreen />
+          <SmoothScroll />
+          <CustomCursor />
+          <ScrollProgress />
+          {children}
         </ThemeProvider>
       </body>
     </html>
