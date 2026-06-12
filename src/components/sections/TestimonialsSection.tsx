@@ -53,7 +53,10 @@ export default function TestimonialsSection() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-black to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-black to-transparent" />
 
-        <div className="flex w-max animate-marquee" style={{ animationDuration: "40s" }}>
+        <div
+          className="flex w-max animate-marquee hover:[animation-play-state:paused]"
+          style={{ animationDuration: "40s" }}
+        >
           {row.map((t, i) => (
             <Card key={`${t.id}-${i}`} t={t} />
           ))}
