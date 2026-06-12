@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Loader2, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2, Check, AlertCircle } from "lucide-react";
 import { socials } from "@/lib/data";
 import { getIcon } from "@/lib/icons";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -13,16 +13,37 @@ const fields = [
   { name: "subject", label: "Subject", type: "text" },
 ] as const;
 
-export default function ContactSection() {
-  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
+// Get a free access key at https://web3forms.com — paste it below
+const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
 
-  const handleSubmit = (e: FormEvent) => {
+export default function ContactSection() {
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    setTimeout(() => {
-      setStatus("done");
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 1600);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.append("access_key", WEB3FORMS_KEY);
+    data.append("subject", `Portfolio Contact: ${data.get("subject") || "New message"}`);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      const json = await res.json();
+      if (json.success) {
+        setStatus("done");
+        form.reset();
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 4000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -53,7 +74,7 @@ export default function ContactSection() {
           <div className="mt-10 space-y-5">
             {[
               { icon: Mail, label: "faganfabian4@gmail.com", href: "mailto:faganfabian4@gmail.com" },
-              { icon: Phone, label: "+1 (000) 000-0000", href: "https://wa.me/10000000000" },
+              { icon: Phone, label: "WhatsApp", href: "https://wa.me/" }, // TODO: tambahkan nomor WA kamu, contoh: https://wa.me/6281234567890
               { icon: MapPin, label: "Available Worldwide", href: "#" },
             ].map((item) => (
               <a
@@ -120,17 +141,20 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            disabled={status !== "idle"}
+            disabled={status === "loading" || status === "done"}
             className="flex w-full items-center justify-center gap-2 rounded-full bg-gold-gradient py-3.5 text-sm font-semibold text-black transition-transform hover:scale-[1.02] disabled:opacity-70"
           >
             {status === "loading" && <Loader2 className="h-4 w-4 animate-spin" />}
             {status === "done" && <Check className="h-4 w-4" />}
+            {status === "error" && <AlertCircle className="h-4 w-4" />}
             {status === "idle" && <Send className="h-4 w-4" />}
             {status === "loading"
               ? "Sending..."
               : status === "done"
-                ? "Message Sent"
-                : "Send Message"}
+                ? "Message Sent!"
+                : status === "error"
+                  ? "Failed — Try Again"
+                  : "Send Message"}
           </button>
         </motion.form>
       </div>
