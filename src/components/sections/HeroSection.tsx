@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { stats } from "@/lib/data";
+import SceneBoundary from "@/components/ui/SceneBoundary";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
@@ -31,7 +32,9 @@ export default function HeroSection() {
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
     >
       <div className="absolute inset-0 z-0">
-        <HeroScene />
+        <SceneBoundary>
+          <HeroScene />
+        </SceneBoundary>
       </div>
 
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black" />
