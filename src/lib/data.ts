@@ -292,12 +292,12 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Services", href: "#services" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Services", href: "/#services" },
   { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Blog", href: "/#blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const socials = [

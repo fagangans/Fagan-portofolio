@@ -132,6 +132,8 @@ export default function ProjectsPage() {
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a
                       href={featured.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 rounded-full bg-gold-gradient px-6 py-2.5 text-sm font-semibold text-black transition-opacity hover:opacity-90"
                     >
                       <ExternalLink className="h-4 w-4" />
@@ -139,6 +141,8 @@ export default function ProjectsPage() {
                     </a>
                     <a
                       href={featured.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:border-gold hover:text-gold"
                     >
                       <Github className="h-4 w-4" />
@@ -189,11 +193,10 @@ export default function ProjectsPage() {
                   key={project.id}
                   layout
                   initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20, scale: 0.97 }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
                   <GlassCard
                     glow
@@ -244,6 +247,8 @@ export default function ProjectsPage() {
                         <div className="flex flex-wrap gap-3 pt-2">
                           <a
                             href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2 rounded-full bg-gold-gradient px-5 py-2 text-xs font-semibold text-black transition-opacity hover:opacity-90"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -251,6 +256,8 @@ export default function ProjectsPage() {
                           </a>
                           <a
                             href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-xs font-semibold text-white transition-colors hover:border-gold hover:text-gold"
                           >
                             <Github className="h-3.5 w-3.5" />
