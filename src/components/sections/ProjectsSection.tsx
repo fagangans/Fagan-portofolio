@@ -4,13 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, X, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/portfolio";
-import type { Project } from "@/data/portfolio";
+import type { Project, ProjectCategory } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-const filters = ["All", "Web Dev", "Design", "Branding", "AI"] as const;
+const allCategories = Array.from(new Set(projects.map((p) => p.category)));
+const filters: Array<"All" | ProjectCategory> = ["All", ...allCategories];
 
 export default function ProjectsSection() {
-  const [active, setActive] = useState<(typeof filters)[number]>("All");
+  const [active, setActive] = useState<"All" | ProjectCategory>("All");
   const [selected, setSelected] = useState<Project | null>(null);
 
   const filtered =
@@ -45,7 +46,7 @@ export default function ProjectsSection() {
 
       <motion.div
         layout
-        className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((project) => (
