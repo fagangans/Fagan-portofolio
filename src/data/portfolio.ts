@@ -81,7 +81,7 @@ export const tagline =
   "Siswa SMA Unggul Garuda | Penggemar Teknologi, Desain, dan Inovasi";
 
 export const shortBio =
-  "Siswa yang gemar belajar, mengeksplorasi teknologi, dan mengikuti berbagai kompetisi untuk mengembangkan kemampuan serta pengalaman.";
+  "Siswa yang membangun website untuk bisnis dan organisasi. Gemar belajar, mengeksplorasi teknologi baru, dan mengembangkan kemampuan melalui proyek nyata.";
 
 export const biography = `
 Saya adalah siswa SMA Unggul Garuda yang memiliki ketertarikan pada teknologi, desain, pengembangan digital, dan berbagai bidang pembelajaran lainnya.
@@ -193,25 +193,25 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Website Belajar Bahasa Inggris",
-    description: "Platform belajar tata bahasa Inggris berbasis web yang interaktif.",
+    description: "Platform belajar tata bahasa Inggris berbasis web dengan antarmuka interaktif.",
     longDescription:
-      "GrammarQuest adalah website belajar bahasa Inggris yang membantu pengguna memahami tata bahasa Inggris secara interaktif langsung di browser.",
+      "GrammarQuest adalah website belajar tata bahasa Inggris yang dapat diakses langsung di browser. Website ini menampilkan materi grammar dalam format yang mudah dipahami, dibangun sebagai single-page application menggunakan React dan Vite untuk pengalaman yang cepat dan responsif.",
     category: "Web Dev",
     tech: ["React", "JavaScript", "Vite"],
     gradient: "from-blue-500/30 to-indigo-700/30",
-    liveUrl: "https://faganbelajarbahasainggris-x41s-aajsxyjjd-fagangans-projects.vercel.app/",
+    liveUrl: "https://faganbelajarbahasainggris.vercel.app/",
     githubUrl: "https://github.com/fagangans/faganbelajarbahasainggris",
   },
   {
     id: 2,
     title: "Template Website Restoran",
-    description: "Template website untuk restoran Indonesia premium.",
+    description: "Template website restoran Indonesia premium dengan halaman menu dan informasi layanan.",
     longDescription:
-      "Nusantara Dining adalah template website restoran Indonesia premium yang menampilkan halaman menu, informasi tentang restoran, dan layanan katering.",
+      "Nusantara Dining adalah template website untuk restoran Indonesia premium. Menampilkan halaman menu makanan, kisah dan latar belakang restoran, serta informasi layanan katering. Dibangun dengan Next.js dan Tailwind CSS dengan tampilan elegan menggunakan palet warna emas dan tipografi premium.",
     category: "Web Dev",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     gradient: "from-amber-500/30 to-orange-700/30",
-    liveUrl: "https://fagan-restaurant-template-n4ei-n3rt7gts2-fagangans-projects.vercel.app/",
+    liveUrl: "https://fagan-restaurant-template.vercel.app/",
     githubUrl: "https://github.com/fagangans/fagan-restaurant-template",
   },
 ];
