@@ -64,6 +64,13 @@ export default function ProjectsSection() {
               <div
                 className={`relative aspect-video bg-gradient-to-br ${project.gradient}`}
               >
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                )}
                 <div className="absolute inset-0 bg-radial-glow" />
                 <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs text-gold backdrop-blur">
                   {project.category}
@@ -114,6 +121,13 @@ export default function ProjectsSection() {
               <div
                 className={`relative aspect-video bg-gradient-to-br ${selected.gradient}`}
               >
+                {selected.image && (
+                  <img
+                    src={selected.image}
+                    alt={selected.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                )}
                 <div className="absolute inset-0 bg-radial-glow" />
                 <button
                   onClick={() => setSelected(null)}

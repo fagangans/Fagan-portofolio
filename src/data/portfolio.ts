@@ -16,6 +16,7 @@ export interface Project {
   category: ProjectCategory;
   tech: string[];
   gradient: string;
+  image?: string; // URL to project screenshot. Omit or leave "" to show gradient placeholder.
   liveUrl: string;
   githubUrl: string;
 }
@@ -199,6 +200,7 @@ export const projects: Project[] = [
     category: "Web Dev",
     tech: ["React", "JavaScript", "Vite"],
     gradient: "from-blue-500/30 to-indigo-700/30",
+    image: "", // Replace with screenshot URL when available
     liveUrl: "https://faganbelajarbahasainggris.vercel.app/",
     githubUrl: "https://github.com/fagangans/faganbelajarbahasainggris",
   },
@@ -211,6 +213,7 @@ export const projects: Project[] = [
     category: "Web Dev",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     gradient: "from-amber-500/30 to-orange-700/30",
+    image: "", // Replace with screenshot URL when available
     liveUrl: "https://fagan-restaurant-template.vercel.app/",
     githubUrl: "https://github.com/fagangans/fagan-restaurant-template",
   },
