@@ -120,19 +120,13 @@ export const navLinks: NavLink[] = [
 // ─── Social Links ─────────────────────────────────────────────
 
 export const socials: SocialLink[] = [
-  { label: "GitHub",    href: "https://github.com",    icon: "Github"    },
-  { label: "LinkedIn",  href: "https://linkedin.com",  icon: "Linkedin"  },
-  { label: "Twitter",   href: "https://twitter.com",   icon: "Twitter"   },
-  { label: "Instagram", href: "https://instagram.com", icon: "Instagram" },
+  { label: "GitHub", href: "https://github.com/fagangans", icon: "Github" },
 ];
 
 // ─── Hero Stats ───────────────────────────────────────────────
 
 export const stats: Stat[] = [
-  { value: "1+", label: "Tahun"   },
-  { value: "1",  label: "Proyek"  },
-  { value: "1",  label: "Klien"   },
-  { value: "1",  label: "Award"   },
+  { value: "2", label: "Proyek" },
 ];
 
 // ─── Skills ───────────────────────────────────────────────────
@@ -197,75 +191,27 @@ export const skillCategories: SkillCategory[] = [
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Nebula Commerce",
-    description: "A headless e-commerce platform with immersive 3D product views.",
+    title: "Website Belajar Bahasa Inggris",
+    description: "Platform belajar tata bahasa Inggris berbasis web yang interaktif.",
     longDescription:
-      "Nebula Commerce reimagines online shopping with WebGL-powered 3D product previews, a blazing-fast headless architecture, and a checkout flow optimized for conversion. Built to scale to millions of SKUs.",
+      "GrammarQuest adalah website belajar bahasa Inggris yang membantu pengguna memahami tata bahasa Inggris secara interaktif langsung di browser.",
     category: "Web Dev",
-    tech: ["Next.js", "TypeScript", "Three.js", "Stripe"],
-    gradient: "from-amber-500/30 to-orange-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
+    tech: ["React", "JavaScript", "Vite"],
+    gradient: "from-blue-500/30 to-indigo-700/30",
+    liveUrl: "https://faganbelajarbahasainggris-x41s-aajsxyjjd-fagangans-projects.vercel.app/",
+    githubUrl: "https://github.com/fagangans/faganbelajarbahasainggris",
   },
   {
     id: 2,
-    title: "Aurora Design System",
-    description: "An enterprise-grade design system used across 40+ products.",
+    title: "Template Website Restoran",
+    description: "Template website untuk restoran Indonesia premium.",
     longDescription:
-      "Aurora is a comprehensive design system delivering accessible, themeable components with full documentation, design tokens, and Figma parity. Adopted by multiple product teams to ship faster.",
-    category: "Design",
-    tech: ["Figma", "Storybook", "React", "Tailwind"],
-    gradient: "from-purple-500/30 to-indigo-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
-  },
-  {
-    id: 3,
-    title: "Lumen Identity",
-    description: "A complete brand identity for a luxury hospitality group.",
-    longDescription:
-      "Lumen is a full brand identity system spanning logo, typography, motion language, and brand guidelines for a five-star hospitality group operating across three continents.",
-    category: "Branding",
-    tech: ["Illustrator", "After Effects", "Brand Strategy"],
-    gradient: "from-rose-500/30 to-pink-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "",   // design work — no repo
-  },
-  {
-    id: 4,
-    title: "Sentient Studio",
-    description: "An AI content studio generating on-brand creative at scale.",
-    longDescription:
-      "Sentient Studio orchestrates multiple generative models to produce on-brand copy, imagery, and video. A custom prompt pipeline keeps every output consistent with brand guardrails.",
-    category: "AI",
-    tech: ["Python", "OpenAI", "Next.js", "LangChain"],
-    gradient: "from-emerald-500/30 to-teal-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
-  },
-  {
-    id: 5,
-    title: "Helix Analytics",
-    description: "A real-time analytics dashboard for high-frequency data.",
-    longDescription:
-      "Helix renders millions of data points in real time with GPU-accelerated charts, customizable widgets, and sub-second query latency powered by an edge data layer.",
+      "Nusantara Dining adalah template website restoran Indonesia premium yang menampilkan halaman menu, informasi tentang restoran, dan layanan katering.",
     category: "Web Dev",
-    tech: ["React", "WebGL", "Rust", "ClickHouse"],
-    gradient: "from-blue-500/30 to-cyan-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
-  },
-  {
-    id: 6,
-    title: "Mirage AR",
-    description: "An augmented-reality try-on experience for fashion retail.",
-    longDescription:
-      "Mirage brings garments to life in AR, letting shoppers visualize fit and drape on their own bodies in real time, directly from the browser with no app install.",
-    category: "AI",
-    tech: ["WebXR", "TensorFlow.js", "Three.js"],
-    gradient: "from-yellow-500/30 to-amber-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    gradient: "from-amber-500/30 to-orange-700/30",
+    liveUrl: "https://fagan-restaurant-template-n4ei-n3rt7gts2-fagangans-projects.vercel.app/",
+    githubUrl: "https://github.com/fagangans/fagan-restaurant-template",
   },
 ];
 
