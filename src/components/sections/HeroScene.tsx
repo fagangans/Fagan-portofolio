@@ -2,7 +2,7 @@
 
 import { useRef, useMemo, Component, type ReactNode } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
+import { Float, MeshDistortMaterial, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 
 class SceneErrorBoundary extends Component<
@@ -22,6 +22,35 @@ class SceneErrorBoundary extends Component<
     }
     return this.props.children;
   }
+}
+
+function DistortCore() {
+  const ref = useRef<THREE.Mesh>(null);
+
+  useFrame((_, delta) => {
+    if (ref.current) {
+      ref.current.rotation.y += delta * 0.15;
+      ref.current.rotation.x += delta * 0.05;
+    }
+  });
+
+  return (
+    <Float speed={1.4} rotationIntensity={0.4} floatIntensity={0.8}>
+      <mesh ref={ref} position={[0, 0, -2.5]}>
+        <icosahedronGeometry args={[1.6, 4]} />
+        <MeshDistortMaterial
+          color="#C9A84C"
+          metalness={0.85}
+          roughness={0.2}
+          emissive="#9C8033"
+          emissiveIntensity={0.15}
+          distort={0.35}
+          speed={1.5}
+          wireframe
+        />
+      </mesh>
+    </Float>
+  );
 }
 
 function FloatingShape({
@@ -132,6 +161,8 @@ function Scene() {
       <pointLight position={[0, 3, -4]} intensity={1} color="#ffffff" />
 
       <Particles />
+      <Sparkles count={60} scale={8} size={2} speed={0.4} color="#E0C77A" />
+      <DistortCore />
       <FloatingShape position={[-2.6, 1, 0]} geometry="torus" speed={1} />
       <FloatingShape position={[2.8, -0.6, -1]} geometry="icosahedron" speed={0.8} />
       <FloatingShape position={[1.2, 1.8, -2]} geometry="octahedron" speed={1.2} />
