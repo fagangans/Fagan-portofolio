@@ -16,6 +16,9 @@ export interface Project {
   category: ProjectCategory;
   tech: string[];
   gradient: string;
+  // Path to a screenshot inside /public (e.g. "/images/projects/my-project.png").
+  // Leave empty to fall back to the gradient placeholder.
+  image?: string;
   liveUrl: string;
   githubUrl: string;
 }
@@ -197,75 +200,45 @@ export const skillCategories: SkillCategory[] = [
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Nebula Commerce",
-    description: "A headless e-commerce platform with immersive 3D product views.",
+    title: "Web Belajar Bahasa Inggris Fagan",
+    description:
+      "Platform belajar Bahasa Inggris interaktif dengan materi yang tersusun rapi untuk meningkatkan vocabulary, grammar, dan percakapan.",
     longDescription:
-      "Nebula Commerce reimagines online shopping with WebGL-powered 3D product previews, a blazing-fast headless architecture, and a checkout flow optimized for conversion. Built to scale to millions of SKUs.",
+      "Website edukasi yang dirancang untuk membantu siapa pun belajar Bahasa Inggris secara mandiri. Materi disusun bertahap mulai dari dasar hingga lebih lanjut, dengan tampilan yang bersih dan mudah dinavigasi agar proses belajar terasa lebih menyenangkan dan efektif.",
     category: "Web Dev",
-    tech: ["Next.js", "TypeScript", "Three.js", "Stripe"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     gradient: "from-amber-500/30 to-orange-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
+    image: "", // TODO: tambahkan screenshot, contoh: "/images/projects/belajar-bahasa-inggris.png"
+    liveUrl: "https://faganbelajarbahasainggris-x41s.vercel.app/",
+    githubUrl: "https://github.com/fagangans/faganbelajarbahasainggris.git",
   },
   {
     id: 2,
-    title: "Aurora Design System",
-    description: "An enterprise-grade design system used across 40+ products.",
+    title: "Template Restaurant Fagan",
+    description:
+      "Template website restoran modern yang menonjolkan menu, suasana, dan identitas brand secara elegan dan responsif.",
     longDescription:
-      "Aurora is a comprehensive design system delivering accessible, themeable components with full documentation, design tokens, and Figma parity. Adopted by multiple product teams to ship faster.",
-    category: "Design",
-    tech: ["Figma", "Storybook", "React", "Tailwind"],
-    gradient: "from-purple-500/30 to-indigo-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
+      "Sebuah template branding untuk bisnis restoran, dirancang dengan tata letak yang elegan untuk menampilkan menu, galeri suasana tempat, dan informasi reservasi. Dibangun responsif agar tetap nyaman dilihat di perangkat apa pun, sekaligus memperkuat identitas brand restoran.",
+    category: "Branding",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    gradient: "from-rose-500/30 to-pink-700/30",
+    image: "", // TODO: tambahkan screenshot, contoh: "/images/projects/restaurant-template.png"
+    liveUrl: "https://fagan-restaurant-template-n4ei.vercel.app/",
+    githubUrl: "https://github.com/fagangans/fagan-restaurant-template.git",
   },
   {
     id: 3,
-    title: "Lumen Identity",
-    description: "A complete brand identity for a luxury hospitality group.",
+    title: "AI Chatbot Fagan",
+    description:
+      "Chatbot berbasis AI yang dirancang untuk merespons pertanyaan pengguna secara natural dan cerdas.",
     longDescription:
-      "Lumen is a full brand identity system spanning logo, typography, motion language, and brand guidelines for a five-star hospitality group operating across three continents.",
-    category: "Branding",
-    tech: ["Illustrator", "After Effects", "Brand Strategy"],
-    gradient: "from-rose-500/30 to-pink-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "",   // design work — no repo
-  },
-  {
-    id: 4,
-    title: "Sentient Studio",
-    description: "An AI content studio generating on-brand creative at scale.",
-    longDescription:
-      "Sentient Studio orchestrates multiple generative models to produce on-brand copy, imagery, and video. A custom prompt pipeline keeps every output consistent with brand guardrails.",
+      "Sebuah chatbot pintar yang memanfaatkan kecerdasan buatan untuk memahami dan merespons percakapan secara natural. Dikembangkan sebagai eksperimen untuk mendalami integrasi AI dalam aplikasi percakapan interaktif.",
     category: "AI",
-    tech: ["Python", "OpenAI", "Next.js", "LangChain"],
+    tech: ["Python", "AI / NLP"],
     gradient: "from-emerald-500/30 to-teal-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
-  },
-  {
-    id: 5,
-    title: "Helix Analytics",
-    description: "A real-time analytics dashboard for high-frequency data.",
-    longDescription:
-      "Helix renders millions of data points in real time with GPU-accelerated charts, customizable widgets, and sub-second query latency powered by an edge data layer.",
-    category: "Web Dev",
-    tech: ["React", "WebGL", "Rust", "ClickHouse"],
-    gradient: "from-blue-500/30 to-cyan-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
-  },
-  {
-    id: 6,
-    title: "Mirage AR",
-    description: "An augmented-reality try-on experience for fashion retail.",
-    longDescription:
-      "Mirage brings garments to life in AR, letting shoppers visualize fit and drape on their own bodies in real time, directly from the browser with no app install.",
-    category: "AI",
-    tech: ["WebXR", "TensorFlow.js", "Three.js"],
-    gradient: "from-yellow-500/30 to-amber-700/30",
-    liveUrl: "#",    // TODO: replace with live URL
-    githubUrl: "#",  // TODO: replace with repo URL (or "" to hide)
+    image: "", // TODO: tambahkan screenshot, contoh: "/images/projects/ai-chatbot.png"
+    liveUrl: "", // belum ada demo live
+    githubUrl: "https://github.com/fagangans/Faganlenwy.git",
   },
 ];
 

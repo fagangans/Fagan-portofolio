@@ -65,9 +65,19 @@ export default function ProjectsSection() {
                 className="group cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-charcoal/40"
               >
                 <div
-                  className={`relative aspect-video bg-gradient-to-br ${project.gradient}`}
+                  className={`relative aspect-video overflow-hidden ${
+                    project.image ? "bg-charcoal" : `bg-gradient-to-br ${project.gradient}`
+                  }`}
                 >
-                  <div className="absolute inset-0 bg-radial-glow" />
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-radial-glow" />
+                  )}
                   <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs text-gold backdrop-blur">
                     {project.category}
                   </span>
@@ -90,6 +100,34 @@ export default function ProjectsSection() {
                         {t}
                       </span>
                     ))}
+                  </div>
+
+                  <div className="mt-5 flex gap-3">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex flex-1 items-center justify-center gap-2 rounded-full bg-gold-gradient px-4 py-2 text-xs font-semibold text-black"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" /> Lihat Preview
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className={`flex items-center justify-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white hover:border-gold hover:text-gold ${
+                          project.liveUrl ? "" : "flex-1"
+                        }`}
+                      >
+                        <Github className="h-3.5 w-3.5" />
+                        {project.liveUrl ? "" : "GitHub"}
+                      </a>
+                    )}
                   </div>
                 </div>
               </Tilt3D>
@@ -116,9 +154,19 @@ export default function ProjectsSection() {
               className="relative z-10 w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-charcoal"
             >
               <div
-                className={`relative aspect-video bg-gradient-to-br ${selected.gradient}`}
+                className={`relative aspect-video overflow-hidden ${
+                  selected.image ? "bg-charcoal" : `bg-gradient-to-br ${selected.gradient}`
+                }`}
               >
-                <div className="absolute inset-0 bg-radial-glow" />
+                {selected.image ? (
+                  <img
+                    src={selected.image}
+                    alt={selected.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-radial-glow" />
+                )}
                 <button
                   onClick={() => setSelected(null)}
                   className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70"
