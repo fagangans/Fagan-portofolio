@@ -6,6 +6,7 @@ import { ExternalLink, Github, X, ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data";
 import type { Project } from "@/types";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Tilt3D from "@/components/ui/Tilt3D";
 
 const filters = ["All", "Web Dev", "Design", "Branding", "AI"] as const;
 
@@ -56,38 +57,42 @@ export default function ProjectsSection() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4 }}
-              whileHover={{ y: -10 }}
               onClick={() => setSelected(project)}
-              className="group cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-charcoal/40"
             >
-              <div
-                className={`relative aspect-video bg-gradient-to-br ${project.gradient}`}
+              <Tilt3D
+                max={8}
+                scale={1.03}
+                className="group cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-charcoal/40"
               >
-                <div className="absolute inset-0 bg-radial-glow" />
-                <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs text-gold backdrop-blur">
-                  {project.category}
-                </span>
-                <ArrowUpRight className="absolute right-4 top-4 h-5 w-5 text-white/60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </div>
-
-              <div className="p-6">
-                <h3 className="font-serif text-xl text-white">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-silver line-clamp-2">
-                  {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tech.slice(0, 3).map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-silver"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                <div
+                  className={`relative aspect-video bg-gradient-to-br ${project.gradient}`}
+                >
+                  <div className="absolute inset-0 bg-radial-glow" />
+                  <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs text-gold backdrop-blur">
+                    {project.category}
+                  </span>
+                  <ArrowUpRight className="absolute right-4 top-4 h-5 w-5 text-white/60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
-              </div>
+
+                <div className="p-6">
+                  <h3 className="font-serif text-xl text-white">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-silver line-clamp-2">
+                    {project.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tech.slice(0, 3).map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-silver"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Tilt3D>
             </motion.div>
           ))}
         </AnimatePresence>
