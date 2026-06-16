@@ -208,7 +208,7 @@ export const projects: Project[] = [
     category: "Web Dev",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     gradient: "from-amber-500/30 to-orange-700/30",
-    image: "", // TODO: tambahkan screenshot, contoh: "/images/projects/belajar-bahasa-inggris.png"
+    image: "/images/projects/belajar-bahasa-inggris.png",
     liveUrl: "https://faganbelajarbahasainggris-x41s.vercel.app/",
     githubUrl: "https://github.com/fagangans/faganbelajarbahasainggris.git",
   },
@@ -222,7 +222,7 @@ export const projects: Project[] = [
     category: "Branding",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     gradient: "from-rose-500/30 to-pink-700/30",
-    image: "", // TODO: tambahkan screenshot, contoh: "/images/projects/restaurant-template.png"
+    image: "/images/projects/restaurant-template.png",
     liveUrl: "https://fagan-restaurant-template-n4ei.vercel.app/",
     githubUrl: "https://github.com/fagangans/fagan-restaurant-template.git",
   },
