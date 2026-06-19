@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -64,6 +65,12 @@ export default function RootLayout({
           <ScrollProgress />
           {children}
         </ThemeProvider>
+        <Script
+          src="http://localhost:3001/widget/chat-widget.js"
+          data-widget-key="ac8cba33-5132-4a0d-b6ef-ffe065e02fe8"
+          data-api-url="http://localhost:3001/api/chat"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
