@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -58,6 +59,12 @@ export default function RootLayout({
           <ScrollProgress />
           {children}
         </ThemeProvider>
+        <Script
+          src="https://api.faiagent.my.id/widget/chat-widget.js"
+          data-widget-key="a43bc61b-4aac-49cd-881f-f4de6ab96191"
+          data-api-url="https://api.faiagent.my.id/api/chat"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
