@@ -64,6 +64,12 @@ export default function RootLayout({
           <ScrollProgress />
           {children}
         </ThemeProvider>
+    <Script
+  src="http://43.129.55.131:3001/widget/chat-widget.js"
+  data-widget-key="a43bc61b-4aac-49cd-881f-f4de6ab96191"
+  data-api-url="http://43.129.55.131:3001/api/chat"
+  strategy="afterInteractive"
+/>
       </body>
     </html>
   );
