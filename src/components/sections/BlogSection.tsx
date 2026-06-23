@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, ArrowRight } from "lucide-react";
+import { Clock } from "lucide-react";
 import { blogPosts } from "@/lib/data";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -23,13 +23,15 @@ export default function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            whileHover={{ y: -8 }}
-            className="group cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-charcoal/40"
+            className="overflow-hidden rounded-2xl border border-white/10 bg-charcoal/40"
           >
             <div className={`relative aspect-[16/10] bg-gradient-to-br ${post.gradient}`}>
               <div className="absolute inset-0 bg-radial-glow" />
               <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs text-gold backdrop-blur">
                 {post.category}
+              </span>
+              <span className="absolute right-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs text-silver backdrop-blur">
+                Coming Soon
               </span>
             </div>
             <div className="p-6">
@@ -39,16 +41,12 @@ export default function BlogSection() {
                   <Clock className="h-3 w-3" /> {post.readTime}
                 </span>
               </div>
-              <h3 className="mt-3 font-serif text-xl text-white transition-colors group-hover:text-gold">
+              <h3 className="mt-3 font-serif text-xl text-white">
                 {post.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-silver">
                 {post.excerpt}
               </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-gold">
-                Read More
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
             </div>
           </motion.article>
         ))}
