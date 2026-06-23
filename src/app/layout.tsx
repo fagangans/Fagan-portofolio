@@ -64,10 +64,10 @@ export default function RootLayout({
           <ScrollProgress />
           {children}
         </ThemeProvider>
-        <script
-  src="http://43.129.55.131:3001/widget/chat-widget.js"
+ <script
+  src="https://api.faiagent.my.id/widget/chat-widget.js"
   data-widget-key="a43bc61b-4aac-49cd-881f-f4de6ab96191"
-  data-api-url="http://43.129.55.131:3001/api/chat"
+  data-api-url="https://api.faiagent.my.id/api/chat"
 ></script>
       </body>
     </html>
