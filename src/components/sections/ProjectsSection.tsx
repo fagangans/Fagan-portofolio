@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, X, ArrowUpRight } from "lucide-react";
-import { projects } from "@/lib/data";
-import type { Project } from "@/types";
+import { projects } from "@/data/portfolio";
+import type { Project } from "@/data/portfolio";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const filters = ["All", "Web Dev", "Design", "Branding", "AI"] as const;
@@ -142,18 +142,26 @@ export default function ProjectsSection() {
                   ))}
                 </div>
                 <div className="mt-8 flex gap-4">
-                  <a
-                    href={selected.liveUrl}
-                    className="flex items-center gap-2 rounded-full bg-gold-gradient px-6 py-2.5 text-sm font-semibold text-black"
-                  >
-                    <ExternalLink className="h-4 w-4" /> Live Demo
-                  </a>
-                  <a
-                    href={selected.githubUrl}
-                    className="flex items-center gap-2 rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white hover:border-gold hover:text-gold"
-                  >
-                    <Github className="h-4 w-4" /> GitHub
-                  </a>
+                  {selected.liveUrl && selected.liveUrl !== "#" && (
+                    <a
+                      href={selected.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full bg-gold-gradient px-6 py-2.5 text-sm font-semibold text-black"
+                    >
+                      <ExternalLink className="h-4 w-4" /> Live Demo
+                    </a>
+                  )}
+                  {selected.githubUrl && selected.githubUrl !== "#" && (
+                    <a
+                      href={selected.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white hover:border-gold hover:text-gold"
+                    >
+                      <Github className="h-4 w-4" /> GitHub
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
